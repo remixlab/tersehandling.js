@@ -72,7 +72,7 @@ public class Agent {
 	
 	//protected boolean enforcedGrabber;
 	//public boolean deviceGrabberIsAnIFrame;//false by default, see: http://stackoverflow.com/questions/3426843/what-is-the-default-initialization-of-an-array-in-java
-	protected boolean deviceTrckn;
+	protected boolean agentTrckn;
 	
 	public Agent(TerseHandler hndlr, String n) {
 		handler = hndlr;
@@ -95,7 +95,7 @@ public class Agent {
 	* You need to setMouseTracking() to \c true in order to use MouseGrabber (see mouseGrabber()).
 	*/
 	public boolean isTracking() {
-		return deviceTrckn;
+		return agentTrckn;
 	}
 	
 	public void enableTracking() {
@@ -110,7 +110,7 @@ public class Agent {
 	* Sets the {@link #isTracking()} value.
 	*/
 	public void setTracking(boolean enable) {
-		deviceTrckn = enable;
+		agentTrckn = enable;
 		if(!isTracking())
 			setTrackedGrabber(null);
 	}
@@ -127,7 +127,7 @@ public class Agent {
 			return;
 		
 		setTrackedGrabber(null);
-		for (Grabbable mg : deviceGrabberPool()) {
+		for (Grabbable mg : pool()) {
 			// take whatever. Here the first one
 			if(mg.checkIfGrabsInput(event)) {
 				setTrackedGrabber(mg);
@@ -163,40 +163,40 @@ public class Agent {
 	 * {@link #removeFromPool(Grabbable)} and
 	 * {@link #addInPool(Grabbable)} to modify this list.
 	 */
-	public List<Grabbable> deviceGrabberPool() {
+	public List<Grabbable> pool() {
 		return grabbers;
 	}
 	
 	/**
-	 * Removes the mouseGrabber from the {@link #deviceGrabberPool()}.
+	 * Removes the mouseGrabber from the {@link #pool()}.
 	 * <p>
 	 * See {@link #addInPool(Grabbable)} for details. Removing a mouseGrabber
-	 * that is not in {@link #deviceGrabberPool()} has no effect.
+	 * that is not in {@link #pool()} has no effect.
 	 */
-	public void removeFromPool(Grabbable deviceGrabber) {
-		deviceGrabberPool().remove(deviceGrabber);
+	public boolean removeFromPool(Grabbable deviceGrabber) {
+		return pool().remove(deviceGrabber);
 	}
 	
 	/**
-	 * Clears the {@link #deviceGrabberPool()}.
+	 * Clears the {@link #pool()}.
 	 * <p>
 	 * Use this method only if it is faster to clear the
-	 * {@link #deviceGrabberPool()} and then to add back a few MouseGrabbers
+	 * {@link #pool()} and then to add back a few MouseGrabbers
 	 * than to remove each one independently.
 	 */
 	public void clearPool() {
-		deviceGrabberPool().clear();
+		pool().clear();
 	}
 	
 	/**
-	 * Returns true if the mouseGrabber is currently in the {@link #deviceGrabberPool()} list.
+	 * Returns true if the mouseGrabber is currently in the {@link #pool()} list.
 	 * <p>
 	 * When set to false using {@link #removeFromPool(Grabbable)}, the Scene no longer
 	 * {@link remixlab.tersehandling.core.Grabbable#checkIfGrabsDevice(int, int, Camera)} on this mouseGrabber.
 	 * Use {@link #addInPool(Grabbable)} to insert it back.
 	 */
 	public boolean isInPool(Grabbable deviceGrabber) {
-		return deviceGrabberPool().contains(deviceGrabber);
+		return pool().contains(deviceGrabber);
 	}
 	
 	/**
@@ -227,10 +227,10 @@ public class Agent {
 	}
 	
 	/**
-	 * Adds the mouseGrabber in the {@link #deviceGrabberPool()}.
+	 * Adds the mouseGrabber in the {@link #pool()}.
 	 * <p>
 	 * All created InteractiveFrames (which are MouseGrabbers) are automatically added in the
-	 * {@link #deviceGrabberPool()} by their constructors. Trying to add a
+	 * {@link #pool()} by their constructors. Trying to add a
 	 * mouseGrabber that already {@link #isInPool(Grabbable)} has no effect.
 	 * <p>
 	 * Use {@link #removeFromPool(Grabbable)} to remove the mouseGrabber from
@@ -247,7 +247,7 @@ public class Agent {
 			return false;
 		//if( !(deviceGrabber instanceof InteractiveCameraFrame) )
 			if (!isInPool(deviceGrabber)) {
-				deviceGrabberPool().add(deviceGrabber);
+				pool().add(deviceGrabber);
 				return true;
 			}
 		return false;

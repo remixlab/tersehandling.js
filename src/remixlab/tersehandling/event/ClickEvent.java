@@ -24,7 +24,7 @@
 
 package remixlab.tersehandling.event;
 
-import remixlab.tersehandling.shortcut.ClickShortcut;
+import remixlab.tersehandling.event.shortcut.ClickShortcut;
 
 import com.flipthebird.gwthashcodeequals.EqualsBuilder;
 import com.flipthebird.gwthashcodeequals.HashCodeBuilder;

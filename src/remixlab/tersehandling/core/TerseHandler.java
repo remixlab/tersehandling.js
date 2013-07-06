@@ -47,8 +47,8 @@ public class TerseHandler {
 	// to be called at the end of the main drawing loop
 	public void handle() {
 		// 1. Agents
-		for (Agent device : agents.values())
-			device.handle(device.feed());
+		for (Agent agent : agents.values())
+			agent.handle(agent.feed());
 		
 		// 2. Low level events 
 		while( !eventTupleQueue.isEmpty() )

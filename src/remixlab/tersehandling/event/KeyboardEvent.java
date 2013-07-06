@@ -30,7 +30,7 @@ import java.util.Map.Entry;
 import com.flipthebird.gwthashcodeequals.EqualsBuilder;
 import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
 
-import remixlab.tersehandling.shortcut.KeyboardShortcut;
+import remixlab.tersehandling.event.shortcut.KeyboardShortcut;
 
 public class KeyboardEvent extends BaseEvent {
 	@Override

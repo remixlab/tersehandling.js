@@ -29,7 +29,7 @@ import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
 
 import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.core.EventConstants;
-import remixlab.tersehandling.shortcut.Shortcut;
+import remixlab.tersehandling.event.shortcut.Shortcut;
 
 public class BaseEvent implements EventConstants, Copyable {
 	//TODO fix modifiers!

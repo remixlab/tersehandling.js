@@ -47,7 +47,7 @@ public class GrabbableCircle extends AbstractGrabber {
     setColor();
     setPosition();
     sWeight = 4;
-    contourColour = color(255, 255, 255);
+    contourColour = color(0, 0, 0);
   }
 
   public GrabbableCircle(Agent agent, PVector c, float r) {
@@ -136,8 +136,8 @@ public class GrabbableCircle extends AbstractGrabber {
   }
 }
 
-int w = 800;
-int h = 500;
+int w = 600;
+int h = 600;
 MouseAgent agent;
 TerseHandler terseHandler;
 GrabbableCircle [] circles;
@@ -153,7 +153,7 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(255);
   for (int i = 0; i < circles.length; i++) {
     if ( circles[i].grabsAgent(agent) )
       circles[i].draw(color(255, 0, 0));

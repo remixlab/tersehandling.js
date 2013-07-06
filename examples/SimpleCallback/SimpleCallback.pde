@@ -1,9 +1,6 @@
 import remixlab.tersehandling.core.*;
 import remixlab.tersehandling.event.*;
 
-int w = 800;
-int h = 500;
-
 public class MouseAgent extends Agent {
   DOF2Event event;
 
@@ -87,6 +84,8 @@ public class GrabbableCircle extends AbstractGrabber {
   }
 }
 
+int w = 600;
+int h = 600;
 MouseAgent agent;
 TerseHandler terseHandler;
 GrabbableCircle [] circles;
@@ -102,7 +101,7 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(255);
   for (int i = 0; i < circles.length; i++) {
     if ( circles[i].grabsAgent(agent) )
       circles[i].draw(color(255, 0, 0));

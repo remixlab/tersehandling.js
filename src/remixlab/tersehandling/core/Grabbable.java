@@ -27,7 +27,7 @@ package remixlab.tersehandling.core;
 import remixlab.tersehandling.event.*;
 
 public interface Grabbable {
-	boolean checkIfGrabsInput(BaseEvent event);
-	void performInteraction(BaseEvent event);
+	boolean checkIfGrabsInput(TerseEvent event);
+	void performInteraction(TerseEvent event);
 	boolean grabsAgent(Agent agent);
 }

@@ -25,7 +25,7 @@
 package remixlab.tersehandling.generic.agent;
 
 import remixlab.tersehandling.core.TerseHandler;
-import remixlab.tersehandling.event.BaseEvent;
+import remixlab.tersehandling.event.TerseEvent;
 import remixlab.tersehandling.generic.profile.Duoable;
 import remixlab.tersehandling.generic.profile.GenericKeyboardProfile;
 import remixlab.tersehandling.generic.profile.KeyDuoable;
@@ -44,13 +44,13 @@ public class GenericKeyboardAgent<K extends GenericKeyboardProfile<?>> extends G
 	}
 	
 	@Override
-	public void handle(BaseEvent event) {
+	public void handle(TerseEvent event) {
 		if(event == null || !handler.isAgentRegistered(this)) return;
 		if(event instanceof Duoable<?>)
 			handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handle((Duoable<?>)event), grabber()));
 	}
 	
-	public void handleKey(BaseEvent event) {
+	public void handleKey(TerseEvent event) {
 		if(event == null || !handler.isAgentRegistered(this)) return;	
 		if(event instanceof KeyDuoable<?>)
 			handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handleKey((KeyDuoable<?>)event), grabber()));

@@ -30,14 +30,14 @@ import remixlab.tersehandling.core.Agent;
 import remixlab.tersehandling.core.EventGrabberTuple;
 import remixlab.tersehandling.core.Grabbable;
 import remixlab.tersehandling.core.TerseHandler;
-import remixlab.tersehandling.event.BaseEvent;
+import remixlab.tersehandling.event.TerseEvent;
 import remixlab.tersehandling.generic.profile.Actionable;
 import remixlab.tersehandling.generic.profile.Duoable;
 import remixlab.tersehandling.generic.profile.GenericProfile;
 
 public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent {
 	public class EventGrabberDuobleTuple extends EventGrabberTuple {
-		public EventGrabberDuobleTuple(BaseEvent e, Actionable<?> a, Grabbable g) {
+		public EventGrabberDuobleTuple(TerseEvent e, Actionable<?> a, Grabbable g) {
 	  	super(e,g);
 	  	if(event instanceof Duoable)
 	  		((Duoable<?>)event).setAction(a);
@@ -78,7 +78,7 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 	}
 	
 	@Override
-	public void handle(BaseEvent event) {		
+	public void handle(TerseEvent event) {		
 		//overkill but feels safer ;)
 		if(event == null || !handler.isAgentRegistered(this))	return;		
 		if(event instanceof Duoable<?>)

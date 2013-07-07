@@ -82,7 +82,7 @@ public class GenericMotionAgent<P extends GenericProfile<?,?>, C extends Generic
 	}
 	
 	@Override
-	public void handle(BaseEvent event) {
+	public void handle(TerseEvent event) {
 		//overkill but feels safer ;)
 		if(event == null || !handler.isAgentRegistered(this))	return;		
 		if(event instanceof Duoable<?>) {

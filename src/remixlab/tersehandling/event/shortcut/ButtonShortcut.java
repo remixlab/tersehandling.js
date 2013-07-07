@@ -27,7 +27,7 @@ package remixlab.tersehandling.event.shortcut;
 import com.flipthebird.gwthashcodeequals.*;
 
 import remixlab.tersehandling.core.Copyable;
-import remixlab.tersehandling.event.BaseEvent;
+import remixlab.tersehandling.event.TerseEvent;
 
 /**
  * This class represents mouse shortcuts.
@@ -120,7 +120,7 @@ public final class ButtonShortcut extends Shortcut implements Copyable {
 	 */
 	protected String description(Integer b) {
 		//TODO: NO_BUTTON should be defined -> e.g., mouse move
-		String r = BaseEvent.getModifiersText(mask);
+		String r = TerseEvent.getModifiersText(mask);
 		switch (b) {
 		case TH_LEFT:
 			r += (r.length() > 0) ? "+LEFT_BUTTON" : "LEFT_BUTTON";

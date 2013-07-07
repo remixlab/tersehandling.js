@@ -122,7 +122,7 @@ public class Agent {
 		setTracking(!isTracking());
 	}
 	
-	public void updateGrabber(BaseEvent event) {
+	public void updateGrabber(TerseEvent event) {
 		if( event == null || !handler.isAgentRegistered(this) || !isTracking() )
 			return;
 		
@@ -139,12 +139,12 @@ public class Agent {
 	}
 	
 	//just enqueue grabber
-	public void handle(BaseEvent event) {
+	public void handle(TerseEvent event) {
 		if(event == null || !handler.isAgentRegistered(this)) return;
 		handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
 	}
 	
-	public BaseEvent feed() {
+	public TerseEvent feed() {
 		return null;
 	}
 	

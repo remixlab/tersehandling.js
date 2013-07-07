@@ -30,7 +30,7 @@ import com.flipthebird.gwthashcodeequals.EqualsBuilder;
 import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
 
 // /**
-public class MotionEvent extends BaseEvent {
+public class MotionEvent extends TerseEvent {
 	@Override
 	public int hashCode() {
     return new HashCodeBuilder(17, 37).

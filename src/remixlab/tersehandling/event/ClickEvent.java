@@ -29,7 +29,7 @@ import remixlab.tersehandling.event.shortcut.ClickShortcut;
 import com.flipthebird.gwthashcodeequals.EqualsBuilder;
 import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
 
-public class ClickEvent extends BaseEvent {
+public class ClickEvent extends TerseEvent {
 	@Override
 	public int hashCode() {
     return new HashCodeBuilder(17, 37).

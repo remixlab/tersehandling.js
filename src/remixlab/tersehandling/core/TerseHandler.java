@@ -160,7 +160,7 @@ public class TerseHandler {
 	 * @see #registerProfile(AbstractHIDevice)
 	 * @see #removeAllDevices()
 	 */
-	public void removeEventTuple(BaseEvent event) {
+	public void removeEventTuple(TerseEvent event) {
 		eventTupleQueue.remove(event);
 	}
 	

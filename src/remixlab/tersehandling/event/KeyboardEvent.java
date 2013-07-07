@@ -32,7 +32,7 @@ import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
 
 import remixlab.tersehandling.event.shortcut.KeyboardShortcut;
 
-public class KeyboardEvent extends BaseEvent {
+public class KeyboardEvent extends TerseEvent {
 	@Override
 	public int hashCode() {
     return new HashCodeBuilder(17, 37).

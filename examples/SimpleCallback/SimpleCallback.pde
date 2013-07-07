@@ -68,7 +68,7 @@ public class GrabbableCircle extends AbstractGrabber {
   }
 
   @Override
-  public boolean checkIfGrabsInput(BaseEvent event) {
+  public boolean checkIfGrabsInput(TerseEvent event) {
     if (event instanceof DOF2Event) {
       float x = ((DOF2Event)event).getX();
       float y = ((DOF2Event)event).getY();
@@ -78,7 +78,7 @@ public class GrabbableCircle extends AbstractGrabber {
   }
 
   @Override
-  public void performInteraction(BaseEvent event) {
+  public void performInteraction(TerseEvent event) {
     setColor();
     setPositionAndRadius();
   }

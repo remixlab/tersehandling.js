@@ -1,8 +1,5 @@
 /**
  *                  TerseHandling (version 0.70.0)      
- *           Copyright (c) 2013 by Jean Pierre Charalambos
- *                 @author Jean Pierre Charalambos      
- *              https://github.com/nakednous/remixcam
  *                           
  * This library provides classes to ease the creation of interactive scenes.
  * 
@@ -29,8 +26,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import remixlab.tersehandling.event.*;
-
+import remixlab.tersehandling.event.TerseEvent;
 
 public class TerseHandler {
 	//D E V I C E S	  &   E V E N T S

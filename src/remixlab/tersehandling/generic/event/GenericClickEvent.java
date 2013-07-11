@@ -1,8 +1,5 @@
 /**
  *                  TerseHandling (version 0.70.0)      
- *           Copyright (c) 2013 by Jean Pierre Charalambos
- *                 @author Jean Pierre Charalambos      
- *              https://github.com/nakednous/remixcam
  *                           
  * This library provides classes to ease the creation of interactive scenes.
  * 

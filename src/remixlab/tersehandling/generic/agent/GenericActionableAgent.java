@@ -1,8 +1,5 @@
 /**
  *                  TerseHandling (version 0.70.0)      
- *           Copyright (c) 2013 by Jean Pierre Charalambos
- *                 @author Jean Pierre Charalambos      
- *              https://github.com/nakednous/remixcam
  *                           
  * This library provides classes to ease the creation of interactive scenes.
  * 
@@ -80,7 +77,7 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 	@Override
 	public void handle(TerseEvent event) {		
 		//overkill but feels safer ;)
-		if(event == null || !handler.isAgentRegistered(this))	return;		
+		if(event == null || !handler.isAgentRegistered(this)) return;
 		if(event instanceof Duoable<?>)
 			handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, profile().handle((Duoable<?>)event), grabber()));
 	}

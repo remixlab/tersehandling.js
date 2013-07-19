@@ -208,7 +208,7 @@ public class DOF3Event extends MotionEvent {
   	return false;
   }
 	
-	public DOF2Event genericDOF2Event() {
+	public DOF2Event dof2Event() {
 		DOF2Event pe2;
 		DOF2Event e2;
   	if(relative()) {  		

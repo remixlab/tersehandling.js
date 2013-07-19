@@ -21,10 +21,10 @@
 
 package remixlab.tersehandling.event;
 
-import remixlab.tersehandling.core.Util;
-
 import com.flipthebird.gwthashcodeequals.EqualsBuilder;
 import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
+
+import remixlab.tersehandling.core.Util;
 
 public class DOF6Event extends MotionEvent {
 	@Override
@@ -317,14 +317,18 @@ public class DOF6Event extends MotionEvent {
 	
 	@Override
 	public boolean isNull() {
-  	if(relative() && Util.zero(getDX()) && Util.zero(getDY()) && Util.zero(getDZ()) && Util.zero(getDRX()) && Util.zero(getDRY()) && Util.zero(getDRZ()))
+		if(relative() && Util.zero(getDX()) && Util.zero(getDY()) && Util.zero(getDZ()) && Util.zero(getDRX()) && Util.zero(getDRY()) && Util.zero(getDRZ()))
   			return true;
-  	if(absolute() && Util.zero(getX()) && Util.zero(getY()) && Util.zero(getZ()) && Util.zero(getRX()) && Util.zero(getRY()) && Util.zero(getRZ()))
-  		return true;
-  	return false;
-  }
+		if(absolute() && Util.zero(getX()) && Util.zero(getY()) && Util.zero(getZ()) && Util.zero(getRX()) && Util.zero(getRY()) && Util.zero(getRZ()))
+			return true;
+		return false;
+	}
 	
-	public DOF3Event genericDOF3Event(boolean fromTranslation) {
+	public DOF3Event dof3Event() {
+		return dof3Event(true);
+	}
+	
+	public DOF3Event dof3Event(boolean fromTranslation) {
 		DOF3Event pe3;
 		DOF3Event e3;
   	if(relative()) {

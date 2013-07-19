@@ -12,12 +12,7 @@ public enum SpaceAction implements Actionable<GlobalAction> {
   public String description() {
     return "A simple motion action";
   }
-
-  @Override
-  public boolean is2D() {
-    return true;
-  }
-
+  
   @Override
   public int dofs() {
     return 6;

@@ -190,14 +190,18 @@ public class DOF2Event extends MotionEvent {
 	
 	@Override
 	public boolean isNull() {
-  	if(relative() && Util.zero(getDX()) && Util.zero(getDY()))
+		if(relative() && Util.zero(getDX()) && Util.zero(getDY()))
   			return true;
-  	if(absolute() && Util.zero(getX()) && Util.zero(getY()))
-  		return true;
-  	return false;
-  }
+		if(absolute() && Util.zero(getX()) && Util.zero(getY()))
+			return true;
+		return false;
+	}
 	
-	public DOF1Event genericDOF1Event(boolean fromX) {
+	public DOF1Event dof1Event() {
+		return dof1Event(true);
+	}
+	
+	public DOF1Event dof1Event(boolean fromX) {
 		DOF1Event pe1;
 		DOF1Event e1;
 		if (fromX) {

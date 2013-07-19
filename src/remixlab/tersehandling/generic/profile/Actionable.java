@@ -24,6 +24,5 @@ package remixlab.tersehandling.generic.profile;
 public interface Actionable<E extends Enum<E>> {
 	E referenceAction();
 	String description();
-	public boolean is2D();
 	public int dofs();
 }

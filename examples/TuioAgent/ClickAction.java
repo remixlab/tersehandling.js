@@ -15,11 +15,6 @@ public enum ClickAction implements Actionable<GlobalAction> {
   }
 
   @Override
-  public boolean is2D() {
-    return true;
-  }
-
-  @Override
   public int dofs() {
     return 0;
   }

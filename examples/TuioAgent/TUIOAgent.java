@@ -31,10 +31,7 @@ implements EventConstants {
   public void addTuioCursor(TuioCursor tcur) {
     event = new GenericDOF2Event<MotionAction>(prevEvent, 
     tcur.getScreenX(canvas.width), tcur.getScreenY(canvas.height), 0, 0);
-
-    updateGrabber(event);
-    Grabbable grabbable = this.trackedGrabber();
-
+    Grabbable grabbable = updateGrabber(event);
     if (grabbable != null)
       grabMap.put(tcur.getCursorID(), grabbable);
   }

@@ -29,11 +29,10 @@ import remixlab.tersehandling.core.Util;
 public class DOF1Event extends MotionEvent {
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder(17, 37).
-				appendSuper(super.hashCode()).
-				append(x).
-				append(dx).
-				toHashCode();
+		return new HashCodeBuilder(17, 37).appendSuper(super.hashCode())
+				.append(x)
+				.append(dx)
+				.toHashCode();
 	}
 
 	@Override
@@ -46,11 +45,10 @@ public class DOF1Event extends MotionEvent {
 			return false;
 
 		DOF1Event other = (DOF1Event) obj;
-		return new EqualsBuilder()
-		.appendSuper(super.equals(obj))
-		.append(x, other.x)
-		.append(dx, other.dx)
-		.isEquals();
+		return new EqualsBuilder().appendSuper(super.equals(obj))
+				.append(x, other.x)
+				.append(dx, other.dx)
+				.isEquals();
 	}
 
 	protected Float x, dx;
@@ -65,17 +63,13 @@ public class DOF1Event extends MotionEvent {
 		this(x, modifiers, button);
 		setPreviousEvent(prevEvent);
 		/**
-		if(prevEvent!=null) {
-			distance = this.getX() - prevEvent.getX();
-			if (sameSequence(prevEvent)) {
-				this.action = prevEvent.getAction();
-				this.dx = this.getX() - prevEvent.getX();
-			}
-		}
-		*/
+		 * if(prevEvent!=null) { distance = this.getX() - prevEvent.getX(); if
+		 * (sameSequence(prevEvent)) { this.action = prevEvent.getAction();
+		 * this.dx = this.getX() - prevEvent.getX(); } }
+		 */
 	}
-	
-  //ready to be enqueued
+
+	// ready to be enqueued
 	public DOF1Event(float x) {
 		super();
 		this.x = x;
@@ -85,7 +79,7 @@ public class DOF1Event extends MotionEvent {
 
 	// idem
 	public DOF1Event(DOF1Event prevEvent, float x) {
-		super();		
+		super();
 		this.x = x;
 		this.dx = 0f;
 		this.button = TH_NOBUTTON;
@@ -104,25 +98,25 @@ public class DOF1Event extends MotionEvent {
 	public DOF1Event get() {
 		return new DOF1Event(this);
 	}
-	
+
 	@Override
-  public void setPreviousEvent(MotionEvent prevEvent) {
-  	if(prevEvent!=null)
-  		if(prevEvent instanceof DOF1Event)	{  			
-  			this.dx = this.getX() - ((DOF1Event) prevEvent).getX();
-  			distance = this.getX() - ((DOF1Event) prevEvent).getX();
-  			delay = this.timestamp() - prevEvent.timestamp();
-  			if(delay==0)
-  				speed = distance;
-  			else
-  				speed = distance / (float)delay;
-  		}
-  	else {
-  		this.dx = 0f;
-  		delay = 0;
-			speed = 0;
-			distance = 0;
-  	}
+	public void setPreviousEvent(MotionEvent prevEvent) {
+		if (prevEvent != null)
+			if (prevEvent instanceof DOF1Event) {
+				rel = true;
+				this.dx = this.getX() - ((DOF1Event) prevEvent).getX();
+				distance = this.getX() - ((DOF1Event) prevEvent).getX();
+				delay = this.timestamp() - prevEvent.timestamp();
+				if (delay == 0)
+					speed = distance;
+				else
+					speed = distance / (float) delay;
+			} else {
+				this.dx = 0f;
+				delay = 0;
+				speed = 0;
+				distance = 0;
+			}
 	}
 
 	public float getX() {
@@ -136,20 +130,20 @@ public class DOF1Event extends MotionEvent {
 	public float getPrevX() {
 		return getX() - getDX();
 	}
-	
+
 	@Override
-	public void modulate(float [] sens) {
-		if(sens != null)
-		if(sens.length>=1 && this.absolute())
-			x = x*sens[0];
+	public void modulate(float[] sens) {
+		if (sens != null)
+			if (sens.length >= 1 && this.absolute())
+				x = x * sens[0];
 	}
-	
+
 	@Override
 	public boolean isNull() {
-  	if(relative() && Util.zero(getDX()) )
-  			return true;
-  	if(absolute() && Util.zero(getX()))
-  		return true;
-  	return false;
-  }
+		if (relative() && Util.zero(getDX()))
+			return true;
+		if (absolute() && Util.zero(getX()))
+			return true;
+		return false;
+	}
 }

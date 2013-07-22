@@ -80,9 +80,9 @@ public class TerseHandler {
 		if(!isAgentRegistered(agent))
 			agents.put(agent.name(), agent);
 		else {
-			System.out.println("Nothing done. A device with the same name is already registered. Current profile names are:");
-			for (Agent dev : agents.values())
-				System.out.println(dev.name());
+			System.out.println("Nothing done. An agent with the same name is already registered. Current agent names are:");
+			for (Agent ag : agents.values())
+				System.out.println(ag.name());
 		}
 	}
 	

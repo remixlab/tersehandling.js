@@ -119,9 +119,9 @@ public class Agent {
 		setTracking(!isTracking());
 	}
 	
-	public void updateGrabber(TerseEvent event) {
+	public Grabbable updateGrabber(TerseEvent event) {
 		if( event == null || !handler.isAgentRegistered(this) || !isTracking() )
-			return;
+			return trackedGrabber();
 		
 		setTrackedGrabber(null);
 		for (Grabbable mg : pool()) {
@@ -129,10 +129,10 @@ public class Agent {
 			if(mg.checkIfGrabsInput(event)) {
 				setTrackedGrabber(mg);
 				//System.out.println("oooops");
-				return;
+				return trackedGrabber();
 			}
 		}
-		return;
+		return trackedGrabber();
 	}
 	
 	//just enqueue grabber

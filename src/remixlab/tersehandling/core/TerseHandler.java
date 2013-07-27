@@ -197,7 +197,7 @@ public class TerseHandler {
 		for (Agent agent : agents.values())
 			if( !agent.isInPool(grabber) )
 				agent.addInPool(grabber);
-	}
+	}	
 	
 	public void removeFromAllAgentPools(Grabbable grabber) {
 		for (Agent agent : agents.values())

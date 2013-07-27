@@ -47,12 +47,16 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 			if( event().isNull() )
 				return false;
 			if(event instanceof Duoable) {
+				queue.add(this);
+				return true;
+				/**
 				if( ((Duoable<?>)event).action() != null ) {
 					queue.add(this);
 					return true;
-		    }
+				}
 				else
 					return false;
+				*/
 			}		
 			else
 				return super.enqueue(queue);	  	

@@ -131,6 +131,7 @@ public class GrabbableCircle extends AbstractGrabber {
   @Override
   public void performInteraction(TerseEvent event) {
     if (event instanceof Duoable) {
+      if( ((Duoable<?>)event).action() != null )
       switch ((GlobalAction) ((Duoable<?>)event).action().referenceAction()) {
       case CHANGE_COLOR:
         contourColour = color(random(100, 255), random(100, 255), random(100, 255));

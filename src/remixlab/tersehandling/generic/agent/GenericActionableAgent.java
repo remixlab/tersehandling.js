@@ -46,17 +46,13 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 		public boolean enqueue(LinkedList<EventGrabberTuple> queue) {
 			if( event().isNull() )
 				return false;
-			if(event instanceof Duoable) {
-				queue.add(this);
-				return true;
-				/**
+			if(event instanceof Duoable) {				
 				if( ((Duoable<?>)event).action() != null ) {
 					queue.add(this);
 					return true;
 				}
 				else
 					return false;
-				*/
 			}		
 			else
 				return super.enqueue(queue);	  	

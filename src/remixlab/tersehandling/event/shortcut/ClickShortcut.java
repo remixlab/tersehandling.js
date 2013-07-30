@@ -1,6 +1,9 @@
 /**
- *                  TerseHandling (version 0.70.0)      
- *                           
+ *                  TerseHandling (version 0.70.0)
+ *           Copyright (c) 2013 by Jean Pierre Charalambos
+ *                 @author Jean Pierre Charalambos
+ *             https://github.com/nakednous/tersehandling
+ *           
  * This library provides classes to ease the creation of interactive scenes.
  * 
  * This source file is free software; you can redistribute it and/or modify it

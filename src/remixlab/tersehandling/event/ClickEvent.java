@@ -34,6 +34,8 @@ public class ClickEvent extends TerseEvent {
 	public int hashCode() {
     return new HashCodeBuilder(17, 37).
     appendSuper(super.hashCode()).
+    append(x).
+    append(y).
     append(button).
 		append(numberOfClicks).
     toHashCode();
@@ -50,38 +52,51 @@ public class ClickEvent extends TerseEvent {
     .appendSuper(super.equals(obj))
     .append(button, other.button)
     .append(numberOfClicks, other.numberOfClicks)
+    .append(x, other.x)
+    .append(y, other.y)
 		.isEquals();
 	}
 	
+	protected Float x, y;
 	protected final Integer numberOfClicks;
 	protected final Integer button;
 	
-	public ClickEvent(int b) {
+	public ClickEvent(float x, float y, int b) {
+		this.x = x;
+	  	this.y = y;
 		this.button = b;
-  	this.numberOfClicks = 1;  	
+		this.numberOfClicks = 1; 
   }
 	
-	public ClickEvent(int b, int clicks) {
+	public ClickEvent(float x, float y, int b, int clicks) {
+		this.x = x;
+	  	this.y = y;
 		this.button = b;
-  	this.numberOfClicks = clicks;
+		this.numberOfClicks = clicks;
   }
 	
 	//--
 	
-	public ClickEvent(Integer modifiers, int b) {
+	public ClickEvent(float x, float y, Integer modifiers, int b) {
 		super(modifiers);
+		this.x = x;
+	  	this.y = y;
 		this.button = b;
-  	this.numberOfClicks = 1;  	
+		this.numberOfClicks = 1;  	
   }
 	
-	public ClickEvent(Integer modifiers, int b, int clicks) {
+	public ClickEvent(float x, float y, Integer modifiers, int b, int clicks) {
 		super(modifiers);
+		this.x = x;
+	  	this.y = y;
 		this.button = b;
-  	this.numberOfClicks = clicks;
+		this.numberOfClicks = clicks;
   }
 	
 	protected ClickEvent(ClickEvent other) {
 		super(other);
+		this.x = new Float(other.x);
+	  	this.y = new Float(other.y);
 		this.button = new Integer(other.button);
 		this.numberOfClicks = new Integer(other.numberOfClicks);		
 	}
@@ -94,6 +109,14 @@ public class ClickEvent extends TerseEvent {
 	@Override
 	public ClickShortcut shortcut() {
 		return new ClickShortcut(getModifiers(), getButton(), getClickCount());
+	}
+	
+	public float getX() {
+		return x;
+	}
+	
+	public float getY() {
+		return y;
 	}
 	
 	public int getClickCount() {

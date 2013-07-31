@@ -31,39 +31,39 @@ import remixlab.tersehandling.generic.profile.Duoable;
 public class GenericClickEvent <A extends Actionable<?>> extends ClickEvent implements Duoable<A> {
 	Actionable<?> action;
 	
-	public GenericClickEvent(int b) {
-		super(b);
+	public GenericClickEvent(float x, float y, int b) {
+		super(x, y, b);
 	}
 	
-	public GenericClickEvent(int b, int clicks) {
-		super(b, clicks);
+	public GenericClickEvent(float x, float y, int b, int clicks) {
+		super(x, y, b, clicks);
 	}
 	
-	public GenericClickEvent(Integer modifiers, int b) {
-		super(modifiers, b);
+	public GenericClickEvent(float x, float y, Integer modifiers, int b) {
+		super(x, y, modifiers, b);
 	}
 	
-	public GenericClickEvent(Integer modifiers, int b, int clicks) {
-		super(modifiers, b, clicks);
+	public GenericClickEvent(float x, float y, Integer modifiers, int b, int clicks) {
+		super(x, y, modifiers, b, clicks);
 	}
 	
-	public GenericClickEvent(int b, Actionable<?> a) {
-		super(b);
+	public GenericClickEvent(float x, float y, int b, Actionable<?> a) {
+		super(x, y, b);
 		action = a;
 	}
 	
-	public GenericClickEvent(int b, int clicks, Actionable<?> a) {
-		super(b, clicks);
+	public GenericClickEvent(float x, float y, int b, int clicks, Actionable<?> a) {
+		super(x, y, b, clicks);
 		action = a;
 	}
 	
-	public GenericClickEvent(Integer modifiers, int b, Actionable<?> a) {
-		super(modifiers, b);
+	public GenericClickEvent(float x, float y, Integer modifiers, int b, Actionable<?> a) {
+		super(x, y, modifiers, b);
 		action = a;
 	}
 	
-	public GenericClickEvent(Integer modifiers, int b, int clicks, Actionable<?> a) {
-		super(modifiers, b, clicks);
+	public GenericClickEvent(float x, float y, Integer modifiers, int b, int clicks, Actionable<?> a) {
+		super(x, y, modifiers, b, clicks);
 		action = a;
 	}
 	

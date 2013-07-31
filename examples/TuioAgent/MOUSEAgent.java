@@ -30,7 +30,7 @@ public class MOUSEAgent extends GenericMotionAgent<GenericMotionProfile<MotionAc
       prevEvent = event.get();
     }
     if ( e.getAction() == processing.event.MouseEvent.CLICK ) {
-      handle(new GenericClickEvent<ClickAction>(e.getModifiers(), e.getButton(), e.getCount()));
+      handle(new GenericClickEvent<ClickAction>(e.getX(), e.getY(), e.getModifiers(), e.getButton(), e.getCount()));
     }
   }
 }

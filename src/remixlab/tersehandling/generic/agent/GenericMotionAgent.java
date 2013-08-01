@@ -24,6 +24,7 @@
 
 package remixlab.tersehandling.generic.agent;
 
+import remixlab.tersehandling.core.EventGrabberTuple;
 import remixlab.tersehandling.core.TerseHandler;
 import remixlab.tersehandling.event.*;
 import remixlab.tersehandling.generic.profile.Duoable;
@@ -84,14 +85,19 @@ public class GenericMotionAgent<P extends GenericProfile<?,?>, C extends Generic
 	@Override
 	public void handle(TerseEvent event) {
 		//overkill but feels safer ;)
-		if(event == null || !handler.isAgentRegistered(this))	return;		
+		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;		
 		if(event instanceof Duoable<?>) {
 			if(event instanceof ClickEvent)
-				handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, clickProfile().handle((Duoable<?>)event), grabber()));
+				if( foreignGrabber() )
+					handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+				else
+					handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, clickProfile().handle((Duoable<?>)event), grabber()));
 			else
 				if(event instanceof MotionEvent) {
 					((MotionEvent)event).modulate(sens);
-					if (grabber() != null )
+					if( foreignGrabber() )
+						handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+					else
 						handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, motionProfile().handle((Duoable<?>)event), grabber()));			
 			}
 		}

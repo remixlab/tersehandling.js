@@ -140,7 +140,7 @@ public class Agent {
 	
 	//just enqueue grabber
 	public void handle(TerseEvent event) {
-		if(event == null || !handler.isAgentRegistered(this)) return;
+		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;
 		handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
 	}
 	

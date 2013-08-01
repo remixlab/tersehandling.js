@@ -24,6 +24,7 @@
 
 package remixlab.tersehandling.generic.agent;
 
+import remixlab.tersehandling.core.EventGrabberTuple;
 import remixlab.tersehandling.core.TerseHandler;
 import remixlab.tersehandling.event.TerseEvent;
 import remixlab.tersehandling.generic.profile.Duoable;
@@ -45,14 +46,20 @@ public class GenericKeyboardAgent<K extends GenericKeyboardProfile<?>> extends G
 	
 	@Override
 	public void handle(TerseEvent event) {
-		if(event == null || !handler.isAgentRegistered(this)) return;
+		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;
 		if(event instanceof Duoable<?>)
-			handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handle((Duoable<?>)event), grabber()));
+			if( foreignGrabber() )
+				handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+			else
+				handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handle((Duoable<?>)event), grabber()));
 	}
 	
 	public void handleKey(TerseEvent event) {
-		if(event == null || !handler.isAgentRegistered(this)) return;	
+		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;	
 		if(event instanceof KeyDuoable<?>)
-			handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handleKey((KeyDuoable<?>)event), grabber()));
+			if( foreignGrabber() )
+				handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+			else
+				handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handleKey((KeyDuoable<?>)event), grabber()));
 	}
 }

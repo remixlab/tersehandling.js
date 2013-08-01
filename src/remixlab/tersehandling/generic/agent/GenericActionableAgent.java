@@ -73,15 +73,22 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 		return profile;
 	}
 	
-	public void setProfile(P	p) {
+	public void setProfile(P p) {
 		profile = p;
+	}
+	
+	protected boolean foreignGrabber() {
+		return false;
 	}
 	
 	@Override
 	public void handle(TerseEvent event) {		
 		//overkill but feels safer ;)
-		if(event == null || !handler.isAgentRegistered(this)) return;
+		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;
 		if(event instanceof Duoable<?>)
-			handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, profile().handle((Duoable<?>)event), grabber()));
+			if( foreignGrabber() )
+				handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+			else
+				handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, profile().handle((Duoable<?>)event), grabber()));
 	}
 }

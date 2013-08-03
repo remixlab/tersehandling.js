@@ -138,6 +138,11 @@ public class Agent {
 		return trackedGrabber();
 	}
 	
+	public void enqueueEventTuple(EventGrabberTuple eventTuple) {
+		if(eventTuple != null && handler.isAgentRegistered(this))
+			handler.enqueueEventTuple(eventTuple);
+	}
+	
 	//just enqueue grabber
 	public void handle(TerseEvent event) {
 		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;

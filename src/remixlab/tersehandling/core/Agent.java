@@ -143,6 +143,14 @@ public class Agent {
 			handler.enqueueEventTuple(eventTuple);
 	}
 	
+	public String info() {
+		String description = new String();
+		description += name();
+		description += "\n";
+		description += "Nothing to be said, except that generic Agents hold more interesting info\n";
+		return description;
+	}
+	
 	//just enqueue grabber
 	public void handle(TerseEvent event) {
 		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;

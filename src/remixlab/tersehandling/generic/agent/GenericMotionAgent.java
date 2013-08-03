@@ -83,6 +83,22 @@ public class GenericMotionAgent<P extends GenericProfile<?,?>, C extends Generic
 	}
 	
 	@Override
+	public String info() {
+		String description = new String();
+		description += name();
+		description += "\n";
+		if( clickProfile().bindingsDescription().length() != 0 ) {
+			description += "Click shortcuts\n";
+			description += clickProfile().bindingsDescription();
+		}
+		if( motionProfile().bindingsDescription().length() != 0 ) {
+			description += "Motion shortcuts\n";
+			description += motionProfile().bindingsDescription();
+		}
+		return description;
+	}
+	
+	@Override
 	public void handle(TerseEvent event) {
 		//overkill but feels safer ;)
 		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;		

@@ -82,6 +82,18 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 	}
 	
 	@Override
+	public String info() {
+		String description = new String();
+		description += name();
+		description += "\n";
+		if( profile().bindingsDescription().length() != 0 ) {
+			description += "Shortcuts\n";
+			description += profile().bindingsDescription();
+		}
+		return description;
+	}
+	
+	@Override
 	public void handle(TerseEvent event) {		
 		//overkill but feels safer ;)
 		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;

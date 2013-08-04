@@ -24,28 +24,25 @@
 
 package remixlab.tersehandling.generic.agent;
 
-import remixlab.tersehandling.core.EventGrabberTuple;
-import remixlab.tersehandling.core.TerseHandler;
+import remixlab.tersehandling.core.*;
 import remixlab.tersehandling.event.*;
-import remixlab.tersehandling.generic.profile.Duoable;
-import remixlab.tersehandling.generic.profile.GenericClickProfile;
-import remixlab.tersehandling.generic.profile.GenericProfile;
+import remixlab.tersehandling.generic.profile.*;
 
-public class GenericMotionAgent<P extends GenericProfile<?,?>, C extends GenericClickProfile<?>> extends GenericActionableAgent<P> {
+public class GenericMotionAgent<M extends GenericMotionProfile<?>, C extends GenericClickProfile<?>> extends GenericActionableAgent<M> {
 	protected C clickProfile;
 	protected float[] sens;
 	
-	public GenericMotionAgent(P p, C c, TerseHandler scn, String n) {
+	public GenericMotionAgent(M p, C c, TerseHandler scn, String n) {
 		super(p, scn, n);
 		clickProfile = c;
 		sens = new float[] {1f, 1f, 1f, 1f, 1f, 1f};
 	}
 	
-	public P motionProfile() {
+	public M motionProfile() {
 		return profile();
 	}
 	
-	public void setMotionProfile(P profile) {
+	public void setMotionProfile(M profile) {
 		setProfile(profile);
 	}
 	
@@ -105,16 +102,16 @@ public class GenericMotionAgent<P extends GenericProfile<?,?>, C extends Generic
 		if(event instanceof Duoable<?>) {
 			if(event instanceof ClickEvent)
 				if( foreignGrabber() )
-					handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+					enqueueEventTuple(new EventGrabberTuple(event, grabber()));
 				else
-					handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, clickProfile().handle((Duoable<?>)event), grabber()));
+					enqueueEventTuple(new EventGrabberDuobleTuple(event, clickProfile().handle((Duoable<?>)event), grabber()));
 			else
 				if(event instanceof MotionEvent) {
 					((MotionEvent)event).modulate(sens);
 					if( foreignGrabber() )
-						handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+						enqueueEventTuple(new EventGrabberTuple(event, grabber()));
 					else
-						handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, motionProfile().handle((Duoable<?>)event), grabber()));			
+						enqueueEventTuple(new EventGrabberDuobleTuple(event, motionProfile().handle((Duoable<?>)event), grabber()));			
 			}
 		}
 	}	

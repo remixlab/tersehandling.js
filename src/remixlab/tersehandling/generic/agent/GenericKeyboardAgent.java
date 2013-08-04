@@ -49,17 +49,17 @@ public class GenericKeyboardAgent<K extends GenericKeyboardProfile<?>> extends G
 		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;
 		if(event instanceof Duoable<?>)
 			if( foreignGrabber() )
-				handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+				enqueueEventTuple(new EventGrabberTuple(event, grabber()));
 			else
-				handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handle((Duoable<?>)event), grabber()));
+				enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handle((Duoable<?>)event), grabber()));
 	}
 	
 	public void handleKey(TerseEvent event) {
 		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;	
 		if(event instanceof KeyDuoable<?>)
 			if( foreignGrabber() )
-				handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+				enqueueEventTuple(new EventGrabberTuple(event, grabber()));
 			else
-				handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handleKey((KeyDuoable<?>)event), grabber()));
+				enqueueEventTuple(new EventGrabberDuobleTuple(event, keyboardProfile().handleKey((KeyDuoable<?>)event), grabber()));
 	}
 }

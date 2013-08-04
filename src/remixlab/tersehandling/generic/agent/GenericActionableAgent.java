@@ -99,8 +99,8 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 		if(event == null || !handler.isAgentRegistered(this) || grabber() == null) return;
 		if(event instanceof Duoable<?>)
 			if( foreignGrabber() )
-				handler.enqueueEventTuple(new EventGrabberTuple(event, grabber()));
+				enqueueEventTuple(new EventGrabberTuple(event, grabber()));
 			else
-				handler.enqueueEventTuple(new EventGrabberDuobleTuple(event, profile().handle((Duoable<?>)event), grabber()));
+				enqueueEventTuple(new EventGrabberDuobleTuple(event, profile().handle((Duoable<?>)event), grabber()));
 	}
 }

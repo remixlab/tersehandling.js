@@ -109,8 +109,6 @@ public class MotionEvent extends TerseEvent {
 
 	@Override
 	public ButtonShortcut shortcut() {
-		if (getButton() == 0)
-			return new ButtonShortcut(getModifiers());
 		return new ButtonShortcut(getModifiers(), getButton());
 	}
 

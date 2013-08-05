@@ -27,25 +27,19 @@ package remixlab.tersehandling.generic.profile;
 import remixlab.tersehandling.event.shortcut.*;
 
 public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfile<ButtonShortcut, A> {
-	/**
-	public AbstractMotionProfile(AbstractScene scn, String n) {
-		super(scn, n);
-	}
-	*/
-	
 	public boolean isBindingInUse() {
 		return isBindingInUse(TH_NOMODIFIER_MASK, TH_NOBUTTON);
 	}
-	
+
 	/**
 	 * Returns true if the given binding binds a camera mouse-action.
 	 * 
 	 * @param button
-	 */	
+	 */
 	public boolean isBindingInUse(Integer button) {
 		return isBindingInUse(TH_NOMODIFIER_MASK, button);
 	}
-	
+
 	/**
 	 * Returns true if the given binding binds a camera mouse-action.
 	 * 
@@ -62,9 +56,10 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	public boolean isActionBound(A action) {
 		return bindings.isActionMapped(action);
 	}
-	
+
 	/**
-	 * Convenience function that simply calls {@code setWheelShortcut(0, action)}
+	 * Convenience function that simply calls
+	 * {@code setWheelShortcut(0, action)}
 	 * 
 	 * @see #setWheelBinding(Integer, A)
 	 */
@@ -76,12 +71,12 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	 * Binds the camera mouse-action to the given binding
 	 * 
 	 * @param button
-	 * @param action 
+	 * @param action
 	 */
 	public void setBinding(Integer button, A action) {
 		setBinding(TH_NOMODIFIER_MASK, button, action);
 	}
-	
+
 	/**
 	 * Binds the camera mouse-action to the given binding
 	 * 
@@ -89,17 +84,18 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	 * @param button
 	 * @param action
 	 * 
-	 * <b>Attention:</b> Mac users should avoid using the CTRL modifier key, since its use is
-	 * reserved to emulate the right button of the mouse.
+	 * <b>Attention:</b> Mac users should avoid using the CTRL
+	 * modifier key, since its use is reserved to emulate the right
+	 * button of the mouse.
 	 */
 	public void setBinding(Integer mask, Integer button, A action) {
-		if ( isBindingInUse(mask, button) ) {
+		if (isBindingInUse(mask, button)) {
 			Actionable<?> a = binding(mask, button);
 			System.out.println("Warning: overwritting binding which was previously associated to " + a);
 		}
 		bindings.setBinding(new ButtonShortcut(mask, button), action);
 	}
-	
+
 	/**
 	 * Convenience function that simply calls {@code removeWheelShortcut(0)}.
 	 * 
@@ -117,7 +113,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	public void removeBinding(Integer button) {
 		removeBinding(TH_NOMODIFIER_MASK, button);
 	}
-	
+
 	/**
 	 * Removes the camera mouse-action binding.
 	 * 
@@ -126,12 +122,12 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	 */
 	public void removeBinding(Integer mask, Integer button) {
 		bindings.removeBinding(new ButtonShortcut(mask, button));
-	}	
-	
+	}
+
 	public Actionable<?> binding() {
 		return binding(TH_NOMODIFIER_MASK, TH_NOBUTTON);
 	}
-	
+
 	/**
 	 * Returns the camera mouse-action associated to the given binding.
 	 * 
@@ -140,7 +136,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	public Actionable<?> binding(Integer button) {
 		return binding(TH_NOMODIFIER_MASK, button);
 	}
-	
+
 	/**
 	 * Returns the camera mouse-action associated to the given binding.
 	 * 

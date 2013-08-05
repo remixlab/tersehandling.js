@@ -31,64 +31,44 @@ import remixlab.tersehandling.core.EventConstants;
 import remixlab.tersehandling.event.shortcut.*;
 
 public class GenericProfile<K extends Shortcut, A extends Actionable<?>> implements EventConstants, Copyable {
-	/**
-	protected AbstractScene scene;
-	protected String nm;
-	*/
 	protected Bindings<K, A> bindings;
-	
+
 	public GenericProfile() {
 		bindings = new Bindings<K, A>();
 	}
-	
+
 	protected GenericProfile(GenericProfile<K, A> other) {
-		bindings = new Bindings<K, A>();    
-    for (Map.Entry<K, A> entry : other.bindings.map().entrySet()) {
-    	K key = entry.getKey();
-    	A value = entry.getValue();
-    	bindings.setBinding(key, value);
-    }
+		bindings = new Bindings<K, A>();
+		for (Map.Entry<K, A> entry : other.bindings.map().entrySet()) {
+			K key = entry.getKey();
+			A value = entry.getValue();
+			bindings.setBinding(key, value);
+		}
 	}
-	
+
 	@Override
-	public GenericProfile<K,A> get() {
+	public GenericProfile<K, A> get() {
 		return new GenericProfile<K, A>(this);
 	}
-	
-	/**
-	public void handle(DLEvent<A> e) {
-		if(e != null)
-			e.setAction(binding(e.shortcut()));
-	}
-	// */
-	
-	/**
-	//TODO testing
-	public Duoble<A> handle(Duoble<A> event) {
-		if(event != null)
-			event.setAction(binding(event.shortcut()));
-		return event;
-	}	
-	// */
-	
+
 	public Actionable<?> handle(Duoable<?> event) {
-		if(event != null)
+		if (event != null)
 			return binding(event.shortcut());
 		return null;
-	}	
+	}
 
 	public String bindingsDescription() {
 		return bindings.description();
 	}
-	
+
 	/**
 	 * Removes all camera keyboard shortcuts.
 	 */
 	public void removeAllBindings() {
 		bindings.removeAllBindings();
 	}
-	
+
 	public Actionable<?> binding(Shortcut k) {
-  	return bindings.binding(k);
-  }
+		return bindings.binding(k);
+	}
 }

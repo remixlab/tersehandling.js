@@ -84,7 +84,6 @@ public class TerseEvent implements EventConstants, Copyable {
 	}
   
   public Shortcut shortcut() {
-  	//System.out.println("calling DLEvent shortcut");
   	return new Shortcut(getModifiers());
   }
   

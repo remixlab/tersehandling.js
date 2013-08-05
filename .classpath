@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="/home/pierre/Dropbox/workspace/libs/p5-2x/core.jar"/>
 	<classpathentry kind="lib" path="/home/pierre/Dropbox/workspace/libs/p5-2x/gluegen-rt.jar"/>
 	<classpathentry kind="lib" path="/home/pierre/Dropbox/workspace/libs/p5-2x/jogl-all.jar"/>

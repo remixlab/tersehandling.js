@@ -84,13 +84,13 @@ public class GenericMotionAgent<M extends GenericMotionProfile<?>, C extends Gen
 		String description = new String();
 		description += name();
 		description += "\n";
-		if( clickProfile().bindingsDescription().length() != 0 ) {
+		if( clickProfile().description().length() != 0 ) {
 			description += "Click shortcuts\n";
-			description += clickProfile().bindingsDescription();
+			description += clickProfile().description();
 		}
-		if( motionProfile().bindingsDescription().length() != 0 ) {
+		if( motionProfile().description().length() != 0 ) {
 			description += "Motion shortcuts\n";
-			description += motionProfile().bindingsDescription();
+			description += motionProfile().description();
 		}
 		return description;
 	}

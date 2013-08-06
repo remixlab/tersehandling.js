@@ -47,14 +47,14 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	 * @param button
 	 */
 	public boolean isBindingInUse(Integer mask, Integer button) {
-		return bindings.isShortcutInUse(new ButtonShortcut(mask, button));
+		return isShortcutInUse(new ButtonShortcut(mask, button));
 	}
 
 	/**
 	 * Returns true if the given camera mouse-action is bound.
 	 */
 	public boolean isActionBound(A action) {
-		return bindings.isActionMapped(action);
+		return isActionMapped(action);
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 			Actionable<?> a = binding(mask, button);
 			System.out.println("Warning: overwritting binding which was previously associated to " + a);
 		}
-		bindings.setBinding(new ButtonShortcut(mask, button), action);
+		setBinding(new ButtonShortcut(mask, button), action);
 	}
 
 	/**
@@ -121,7 +121,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	 * @param button
 	 */
 	public void removeBinding(Integer mask, Integer button) {
-		bindings.removeBinding(new ButtonShortcut(mask, button));
+		removeBinding(new ButtonShortcut(mask, button));
 	}
 
 	public Actionable<?> binding() {
@@ -144,6 +144,6 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	 * @param button
 	 */
 	public Actionable<?> binding(Integer mask, Integer button) {
-		return bindings.binding(new ButtonShortcut(mask, button));
+		return binding(new ButtonShortcut(mask, button));
 	}
 }

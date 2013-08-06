@@ -29,17 +29,17 @@ public class GenericWheeledMotionAgent<W extends GenericMotionProfile<?>,
 		String description = new String();
 		description += name();
 		description += "\n";
-		if( clickProfile().bindingsDescription().length() != 0 ) {
+		if( clickProfile().description().length() != 0 ) {
 			description += "Click shortcuts\n";
-			description += clickProfile().bindingsDescription();
+			description += clickProfile().description();
 		}
-		if( motionProfile().bindingsDescription().length() != 0 ) {
+		if( motionProfile().description().length() != 0 ) {
 			description += "Motion shortcuts\n";
-			description += motionProfile().bindingsDescription();
+			description += motionProfile().description();
 		}
-		if( wheelProfile().bindingsDescription().length() != 0 ) {
+		if( wheelProfile().description().length() != 0 ) {
 			description += "Wheel shortcuts\n";
-			description += wheelProfile().bindingsDescription();
+			description += wheelProfile().description();
 		}
 		return description;
 	}

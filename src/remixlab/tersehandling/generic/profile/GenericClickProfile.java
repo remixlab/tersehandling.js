@@ -34,7 +34,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            binding
 	 */
 	public boolean isClickBindingInUse(Integer button) {
-		return bindings.isShortcutInUse(new ClickShortcut(button));
+		return isShortcutInUse(new ClickShortcut(button));
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            number of clicks defining the binding
 	 */
 	public boolean isClickBindingInUse(Integer button, Integer nc) {
-		return bindings.isShortcutInUse(new ClickShortcut(button, nc));
+		return isShortcutInUse(new ClickShortcut(button, nc));
 	}
 
 	/**
@@ -60,14 +60,14 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            number of clicks defining the binding
 	 */
 	public boolean isClickBindingInUse(Integer mask, Integer button, Integer nc) {
-		return bindings.isShortcutInUse(new ClickShortcut(mask, button, nc));
+		return isShortcutInUse(new ClickShortcut(mask, button, nc));
 	}
 
 	/**
 	 * Returns true if the given click-action is bound.
 	 */
 	public boolean isClickActionBound(A action) {
-		return bindings.isActionMapped(action);
+		return isActionMapped(action);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 			Actionable<?> a = clickBinding(button);
 			System.out.println("Warning: overwritting binding which was previously associated to " + a);
 		}
-		bindings.setBinding(new ClickShortcut(button), action);
+		setBinding(new ClickShortcut(button), action);
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 			Actionable<?> a = clickBinding(button, nc);
 			System.out.println("Warning: overwritting binding which was previously associated to " + a);
 		}
-		bindings.setBinding(new ClickShortcut(button, nc), action);
+		setBinding(new ClickShortcut(button, nc), action);
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 			Actionable<?> a = clickBinding(mask, button, nc);
 			System.out.println("Warning: overwritting binding which was previously associated to " + a);
 		}
-		bindings.setBinding(new ClickShortcut(mask, button, nc), action);
+		setBinding(new ClickShortcut(mask, button, nc), action);
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            binding
 	 */
 	public void removeClickBinding(Integer button) {
-		bindings.removeBinding(new ClickShortcut(button));
+		removeBinding(new ClickShortcut(button));
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            number of clicks defining the binding
 	 */
 	public void removeClickBinding(Integer button, Integer nc) {
-		bindings.removeBinding(new ClickShortcut(button, nc));
+		removeBinding(new ClickShortcut(button, nc));
 	}
 
 	/**
@@ -161,7 +161,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            number of clicks defining the binding
 	 */
 	public void removeClickBinding(Integer mask, Integer button, Integer nc) {
-		bindings.removeBinding(new ClickShortcut(mask, button, nc));
+		removeBinding(new ClickShortcut(mask, button, nc));
 	}
 
 	/**
@@ -171,7 +171,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            binding
 	 */
 	public Actionable<?> clickBinding(Integer button) {
-		return bindings.binding(new ClickShortcut(button));
+		return binding(new ClickShortcut(button));
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            number of clicks defining the binding
 	 */
 	public Actionable<?> clickBinding(Integer button, Integer nc) {
-		return bindings.binding(new ClickShortcut(button, nc));
+		return binding(new ClickShortcut(button, nc));
 	}
 
 	/**
@@ -197,6 +197,6 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 *            number of clicks defining the binding
 	 */
 	public Actionable<?> clickBinding(Integer mask, Integer button, Integer nc) {
-		return bindings.binding(new ClickShortcut(mask, button, nc));
+		return binding(new ClickShortcut(mask, button, nc));
 	}
 }

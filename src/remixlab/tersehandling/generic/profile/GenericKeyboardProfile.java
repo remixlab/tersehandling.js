@@ -48,7 +48,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 			Actionable<?> a = shortcut(key);
 			System.out.println("Warning: overwritting shortcut which was previously bound to " + a);
 		}
-		bindings.setBinding(new KeyboardShortcut(key), action);
+		setBinding(new KeyboardShortcut(key), action);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 			Actionable<?> a = shortcut(mask, vKey);
 			System.out.println("Warning: overwritting shortcut which was previously bound to " + a);
 		}
-		bindings.setBinding(new KeyboardShortcut(mask, vKey), action);
+		setBinding(new KeyboardShortcut(mask, vKey), action);
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 			Actionable<?> a = shortcut(vKey);
 			System.out.println("Warning: overwritting shortcut which was previously bound to " + a);
 		}
-		bindings.setBinding(new KeyboardShortcut(vKey), action);
+		setBinding(new KeyboardShortcut(vKey), action);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 *            shortcut
 	 */
 	public void removeShortcut(Character key) {
-		bindings.removeBinding(new KeyboardShortcut(key));
+		removeBinding(new KeyboardShortcut(key));
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 * @see #removeShortcut(Integer, Character)
 	 */
 	public void removeShortcut(Integer mask, Integer vKey) {
-		bindings.removeBinding(new KeyboardShortcut(mask, vKey));
+		removeBinding(new KeyboardShortcut(mask, vKey));
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 *            coded key (such PApplet.UP) that defines the shortcut
 	 */
 	public void removeShortcut(Integer vKey) {
-		bindings.removeBinding(new KeyboardShortcut(vKey));
+		removeBinding(new KeyboardShortcut(vKey));
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 * @return action
 	 */
 	public Actionable<?> shortcut(Character key) {
-		return bindings.binding(new KeyboardShortcut(key));
+		return binding(new KeyboardShortcut(key));
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 * @see #shortcut(Integer, Character)
 	 */
 	public Actionable<?> shortcut(Integer mask, Integer vKey) {
-		return bindings.binding(new KeyboardShortcut(mask, vKey));
+		return binding(new KeyboardShortcut(mask, vKey));
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 * @return action
 	 */
 	public Actionable<?> shortcut(Integer vKey) {
-		return bindings.binding(new KeyboardShortcut(vKey));
+		return binding(new KeyboardShortcut(vKey));
 	}
 
 	/**
@@ -225,7 +225,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 *            shortcut
 	 */
 	public boolean isKeyInUse(Character key) {
-		return bindings.isShortcutInUse(new KeyboardShortcut(key));
+		return isShortcutInUse(new KeyboardShortcut(key));
 	}
 
 	/**
@@ -258,7 +258,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 * @see #isKeyInUse(Integer, Character)
 	 */
 	public boolean isKeyInUse(Integer mask, Integer vKey) {
-		return bindings.isShortcutInUse(new KeyboardShortcut(mask, vKey));
+		return isShortcutInUse(new KeyboardShortcut(mask, vKey));
 	}
 
 	/**
@@ -268,13 +268,13 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 *            coded key (such PApplet.UP) that defines the shortcut
 	 */
 	public boolean isKeyInUse(Integer vKey) {
-		return bindings.isShortcutInUse(new KeyboardShortcut(vKey));
+		return isShortcutInUse(new KeyboardShortcut(vKey));
 	}
 
 	/**
 	 * Returns true if there is a camera keyboard shortcut for the given action.
 	 */
 	public boolean isKeyboardActionBound(A action) {
-		return bindings.isActionMapped(action);
+		return isActionMapped(action);
 	}
 }

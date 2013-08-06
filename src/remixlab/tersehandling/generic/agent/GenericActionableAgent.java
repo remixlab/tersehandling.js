@@ -86,9 +86,9 @@ public class GenericActionableAgent<P extends GenericProfile<?,?>> extends Agent
 		String description = new String();
 		description += name();
 		description += "\n";
-		if( profile().bindingsDescription().length() != 0 ) {
+		if( profile().description().length() != 0 ) {
 			description += "Shortcuts\n";
-			description += profile().bindingsDescription();
+			description += profile().description();
 		}
 		return description;
 	}

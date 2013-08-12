@@ -54,7 +54,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	/**
 	 * Defines a camera keyboard shortcut to bind the given action.
 	 * <p>
-	 * High-level version of {@link #setShortcut(Integer, Integer, Scene.A)}.
+	 * High-level version of {@link #setShortcut(Integer, Integer, Actionable)}.
 	 * 
 	 * @param mask
 	 *            modifier mask defining the shortcut
@@ -64,7 +64,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 * @param action
 	 *            action to be bound
 	 * 
-	 * @see #setShortcut(Integer, Integer, Scene.A)
+	 * @see #setShortcut(Integer, Integer, Actionable)
 	 */
 	public void setShortcut(Integer mask, Character key, A action) {
 		setShortcut(mask, KeyboardEvent.getKeyCode(key), action);
@@ -73,7 +73,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	/**
 	 * Defines a camera keyboard shortcut to bind the given action.
 	 * <p>
-	 * Low-level version of {@link #setShortcut(Integer, Character, Scene.A)}.
+	 * Low-level version of {@link #setShortcut(Integer, Character, Actionable)}.
 	 * 
 	 * @param mask
 	 *            modifier mask defining the shortcut
@@ -82,7 +82,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	 * @param action
 	 *            action to be bound
 	 * 
-	 * @see #setShortcut(Integer, Character, Scene.A)
+	 * @see #setShortcut(Integer, Character, Actionable)
 	 */
 	public void setShortcut(Integer mask, Integer vKey, A action) {
 		if (isKeyInUse(mask, vKey)) {

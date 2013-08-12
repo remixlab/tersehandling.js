@@ -35,26 +35,37 @@ import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.core.EventConstants;
 import remixlab.tersehandling.event.shortcut.*;
 
+/**
+ * A mapping between TerseEvent shortcuts and user-defined actions
+ * implemented as a parameterized hash-map wrap.
+ * <p>
+ * Thanks to its Profiles, generic agents parse TerseEvents to determine
+ * the user-defined action its input grabber should perform.
+ *
+ * @author pierre
+ *
+ * @param <K> Shortcut
+ * @param <A> User defined action.
+ */
 public class GenericProfile<K extends Shortcut, A extends Actionable<?>> implements EventConstants, Copyable {
 	@Override
 	public int hashCode() {
-    return new HashCodeBuilder(17, 37).		
-		append(map).
-		toHashCode();
+		return new HashCodeBuilder(17, 37).append(map).toHashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null) return false;
-		if (obj == this) return true;		
-		if (obj.getClass() != getClass()) return false;		
-		
-		GenericProfile<?,?> other = (GenericProfile<?,?>) obj;
-	  return new EqualsBuilder()		
-		.append(map, other.map)
-		.isEquals();
+		if (obj == null)
+			return false;
+		if (obj == this)
+			return true;
+		if (obj.getClass() != getClass())
+			return false;
+
+		GenericProfile<?, ?> other = (GenericProfile<?, ?>) obj;
+		return new EqualsBuilder().append(map, other.map).isEquals();
 	}
-	
+
 	protected HashMap<K, A> map;
 
 	public GenericProfile() {
@@ -75,14 +86,20 @@ public class GenericProfile<K extends Shortcut, A extends Actionable<?>> impleme
 		return new GenericProfile<K, A>(this);
 	}
 
+	/**
+	 * Main class method which attempts to define a user-defined action
+	 * by parsing the event's shortcut.
+	 * 
+	 * @param event Generic event to be parsed by this profile.
+	 * @return The user-defined action. May be null if no actions was found.
+	 */
 	public Actionable<?> handle(Duoable<?> event) {
 		if (event != null)
 			return binding(event.shortcut());
 		return null;
 	}
-	
-	//-- hash map
-	
+
+
 	/**
 	 * Returns the {@code map} (which is simply an instance of {@code HashMap})
 	 * encapsulated by this object.
@@ -90,30 +107,33 @@ public class GenericProfile<K extends Shortcut, A extends Actionable<?>> impleme
 	public HashMap<K, A> map() {
 		return map;
 	}
-	
+
 	public A binding(Shortcut key) {
 		return map.get(key);
 	}
-	
+
 	/**
 	 * Defines the shortcut that triggers a given action.
 	 * 
-	 * @param key shortcut.
-	 * @param action action.
+	 * @param key
+	 *            shortcut.
+	 * @param action
+	 *            action.
 	 */
 	public void setBinding(K key, A action) {
 		map.put(key, action);
 	}
-	
+
 	/**
 	 * Removes the shortcut binding.
 	 * 
-	 * @param key shortcut
+	 * @param key
+	 *            shortcut
 	 */
 	public void removeBinding(K key) {
 		map.remove(key);
 	}
-	
+
 	/**
 	 * Removes all the shortcuts from this object.
 	 */
@@ -122,29 +142,36 @@ public class GenericProfile<K extends Shortcut, A extends Actionable<?>> impleme
 	}
 
 	/**
-	 * Returns true if this object contains a binding for the specified shortcut.
+	 * Returns true if this object contains a binding for the specified
+	 * shortcut.
 	 * 
-	 * @param key shortcut
-	 * @return true if this object contains a binding for the specified shortcut.
+	 * @param key
+	 *            shortcut
+	 * @return true if this object contains a binding for the specified
+	 *         shortcut.
 	 */
 	public boolean isShortcutInUse(K key) {
 		return map.containsKey(key);
 	}
-	
+
 	/**
-	 * Returns true if this object maps one or more shortcuts to the specified action.
+	 * Returns true if this object maps one or more shortcuts to the specified
+	 * action.
 	 * 
-	 * @param action action whose presence in this object is to be tested
-	 * @return true if this object maps one or more shortcuts to the specified action.
+	 * @param action
+	 *            action whose presence in this object is to be tested
+	 * @return true if this object maps one or more shortcuts to the specified
+	 *         action.
 	 */
 	public boolean isActionMapped(A action) {
 		return map.containsValue(action);
 	}
-	
+
 	public String description() {
 		String result = new String();
 		for (Entry<K, A> entry : map.entrySet())
-			result += entry.getKey().description() + " -> " + entry.getValue().description() + "\n"; 
+			result += entry.getKey().description() + " -> "
+					+ entry.getValue().description() + "\n";
 		return result;
 	}
 }

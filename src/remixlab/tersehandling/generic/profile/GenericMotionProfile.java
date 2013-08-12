@@ -59,9 +59,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 
 	/**
 	 * Convenience function that simply calls
-	 * {@code setWheelShortcut(0, action)}
-	 * 
-	 * @see #setWheelBinding(Integer, A)
+	 * {@code setWheelShortcut(0, action)}.
 	 */
 	public void setBinding(A action) {
 		setBinding(TH_NOBUTTON, action);
@@ -98,8 +96,6 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 
 	/**
 	 * Convenience function that simply calls {@code removeWheelShortcut(0)}.
-	 * 
-	 * @see #removeWheelBinding(Integer)
 	 */
 	public void removeBinding() {
 		removeBinding(TH_NOMODIFIER_MASK, TH_NOBUTTON);

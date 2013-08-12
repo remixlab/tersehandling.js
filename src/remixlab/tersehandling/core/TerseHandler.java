@@ -31,192 +31,213 @@ import java.util.List;
 
 import remixlab.tersehandling.event.TerseEvent;
 
+/**
+ * Every TerseHandling application should instantiate a single
+ * TerseHandler object which is the high level package handler.
+ * The handler holds a collection of {@link #agents()}, and an event
+ * dispatcher queue of [terseEvent, grabber] tuples ({@link #eventTupleQueue()}).
+ * Such tuple represents a message passing to application objects,
+ * allowing an object to be instructed to perform a particular
+ * user-defined action from a given TerseEvent.
+ * <p>
+ * A handler continuously runs the following two loops during runtime:
+ * 1. Agent_i.handle(Agent_i.feed()), (see {@link remixlab.tersehandling.core.Agent#handle(TerseEvent)}
+ * and {@link remixlab.tersehandling.core.Agent#feed()}); and 2. eventTupleQueue.remove().perform(),
+ * an application object action callback.
+ * 
+ * @author pierre
+ */
 public class TerseHandler {
-	//D E V I C E S	  &   E V E N T S
+	// D E V I C E S & E V E N T S
 	protected HashMap<String, Agent> agents;
 	protected LinkedList<EventGrabberTuple> eventTupleQueue;
-	
+
 	public TerseHandler() {
-		//agents
+		// agents
 		agents = new HashMap<String, Agent>();
-		//events
+		// events
 		eventTupleQueue = new LinkedList<EventGrabberTuple>();
 	}
-	
-	// to be called at the end of the main drawing loop
+
+	/**
+	 * This function should be called at the end of the main drawing loop.
+	 */
 	public void handle() {
 		// 1. Agents
 		for (Agent agent : agents.values())
 			agent.handle(agent.feed());
-		
-		// 2. Low level events 
-		while( !eventTupleQueue.isEmpty() )
+
+		// 2. Low level events
+		while (!eventTupleQueue.isEmpty())
 			eventTupleQueue.remove().perform();
 	}
-	
-	// call when grabber is null
-	//public abstract void defaultPerformer(GenericEvent e);
-	
+
 	/**
-	 * Returns an array of the camera profile objects that are currently
-	 * registered at the Scene.
+	 * Returns an array of the registered agents.
+	 * 
+	 * @see #agents()
 	 */
-	public Agent [] agentsArray() {
+	public Agent[] agentsArray() {
 		return agents.values().toArray(new Agent[0]);
 	}
-	
+
+	/**
+	 * Returns a list of the registered agents.
+	 * 
+	 * @see #agentsArray()
+	 */
 	public List<Agent> agents() {
 		List<Agent> list = new ArrayList<Agent>();
 		for (Agent agent : agents.values())
 			list.add(agent);
-				
+
 		return list;
 	}
-	
+
 	/**
-	 * Adds an HIDevice to the scene.
-	 * 
-	 * @see #unregisterProfile(HIDevice)
-	 * @see #removeAllDevices()
+	 * Registers the given agent.
 	 */
 	public void registerAgent(Agent agent) {
-		if(!isAgentRegistered(agent))
+		if (!isAgentRegistered(agent))
 			agents.put(agent.name(), agent);
 		else {
-			System.out.println("Nothing done. An agent with the same name is already registered. Current agent names are:");
+			System.out
+					.println("Nothing done. An agent with the same name is already registered. Current agent names are:");
 			for (Agent ag : agents.values())
 				System.out.println(ag.name());
 		}
 	}
-	
+
 	public boolean isAgentRegistered(Agent agent) {
 		return agents.containsKey(agent.name());
 	}
-	
+
 	public boolean isAgentRegistered(String name) {
 		return agents.containsKey(name);
 	}
-	
+
 	public Agent getAgent(String name) {
 		return agents.get(name);
 	}
-	
+
 	/**
-	 * Removes the device from the scene.
-	 * 
-	 * @see #registerProfile(HIDevice)
-	 * @see #removeAllDevices()
+	 * Unregisters the given agent and returns it.
 	 */
-	public Agent unregisterAgent(Agent device) {
-		return agents.remove(device.name());
+	public Agent unregisterAgent(Agent agent) {
+		return agents.remove(agent.name());
 	}
 
+	/**
+	 * Unregisters the given agent by its name and returns it.
+	 */
 	public Agent unregisterAgent(String name) {
 		return agents.remove(name);
 	}
-	
+
 	/**
-	 * Removes all registered devices from the scene.
-	 * 
-	 * @see #registerProfile(HIDevice)
-	 * @see #unregisterProfile(HIDevice)
+	 * Unregisters all agents from the handler.
 	 */
 	public void unregisterAllAgents() {
 		agents.clear();
 	}
-	
+
 	/**
-	 * Adds an HIDevice to the scene.
-	 * 
-	 * @see #unregisterProfile(AbstractHIDevice)
-	 * @see #removeAllDevices()
+	 * Returns the event tuple queue. Rarely needed.
 	 */
-	/**
-	public void enqueueEventTuple(EventGrabberTuple eventTuple) {
-		if(!eventTupleQueue.contains(eventTuple))
-			if( !eventTuple.event().isNull() )
-				if( eventTuple instanceof Duoble ) {
-					if (((Duoble<?>)eventTuple.event()).getAction() != null)
-						eventTupleQueue.add(eventTuple);
-				}
-				else
-					eventTupleQueue.add(eventTuple);
-	}
-	*/
-	
 	public LinkedList<EventGrabberTuple> eventTupleQueue() {
 		return eventTupleQueue;
 	}
-	
-	public void enqueueEventTuple(EventGrabberTuple eventTuple) {		
-		if(!eventTupleQueue.contains(eventTuple))
+
+	public void enqueueEventTuple(EventGrabberTuple eventTuple) {
+		if (!eventTupleQueue.contains(eventTuple))
 			eventTuple.enqueue(eventTupleQueue);
 	}
-	
+
 	/**
-	 * Removes the device from the scene.
+	 * Removes the given event from the event queue. No action
+	 * is executed.
 	 * 
-	 * @see #registerProfile(AbstractHIDevice)
-	 * @see #removeAllDevices()
+	 * @param event to be removed.
 	 */
 	public void removeEventTuple(TerseEvent event) {
 		eventTupleQueue.remove(event);
 	}
-	
+
 	/**
-	 * Removes all registered devices from the scene.
-	 * 
-	 * @see #registerProfile(AbstractHIDevice)
-	 * @see #unregisterProfile(AbstractHIDevice)
+	 * Clears the event queue. Nothing is executed.
 	 */
 	public void removeAllEventTuples() {
 		eventTupleQueue.clear();
 	}
-	
-	// 3. Device grabber handling
-	
+
+	/**
+	 * Returns {@code true} if the given {@code grabber} is in
+	 * the {@code agent} pool and {@code false} otherwise.
+	 */
 	public boolean isInAgentPool(Grabbable grabber, Agent agent) {
-		if(agent == null) return false;
+		if (agent == null)
+			return false;
 		return agent.isInPool(grabber);
 	}
-	
+
+	/**
+	 * Adds {@code grabber} to the {@code agent} {@link remixlab.tersehandling.core.Agent#pool()}.
+	 */
 	public boolean addInAgentPool(Grabbable grabber, Agent agent) {
-		if(agent == null) return false;
+		if (agent == null)
+			return false;
 		return agent.addInPool(grabber);
 	}
-	
+
+	/**
+	 * Removes {@code grabber} from the {@code agent} {@link remixlab.tersehandling.core.Agent#pool()}.
+	 */
 	public boolean removeFromAgentPool(Grabbable grabber, Agent agent) {
-		if(agent == null) return false;
+		if (agent == null)
+			return false;
 		return agent.removeFromPool(grabber);
 	}
 	
+	/**
+	 * Clears the {@code agent} {@link remixlab.tersehandling.core.Agent#pool()}.
+	 */
 	public void clearAgentPool(Agent agent) {
 		agent.clearPool();
 	}
-	
-	//--- Global
-	
+
+	/**
+	 * Adds {@code grabber} into all registered agents.
+	 */
 	public void addInAllAgentPools(Grabbable grabber) {
 		for (Agent agent : agents.values())
-			if( !agent.isInPool(grabber) )
+			if (!agent.isInPool(grabber))
 				agent.addInPool(grabber);
-	}	
-	
+	}
+
+	/**
+	 * Removes {@code grabber} from all registered agents.
+	 */
 	public void removeFromAllAgentPools(Grabbable grabber) {
 		for (Agent agent : agents.values())
 			agent.removeFromPool(grabber);
 	}
 
+	/**
+	 * Clears all registered agent's {@link remixlab.tersehandling.core.Agent#pool()}.
+	 */
 	public void clearAllAgentPools() {
 		for (Agent agent : agents.values())
 			agent.clearPool();
 	}
-	
+
+	/**
+	 * Returns a list containing all Grabbable objects registered at all agents.
+	 */
 	public List<Grabbable> globalGrabberList() {
 		List<Grabbable> msGrabberPool = new ArrayList<Grabbable>();
 		for (Agent device : agents.values())
 			for (Grabbable grabber : device.pool())
-				if(!msGrabberPool.contains(grabber))
+				if (!msGrabberPool.contains(grabber))
 					msGrabberPool.add(grabber);
 
 		return msGrabberPool;

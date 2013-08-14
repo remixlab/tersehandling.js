@@ -27,6 +27,13 @@ package remixlab.tersehandling.generic.profile;
 import remixlab.tersehandling.event.KeyboardEvent;
 import remixlab.tersehandling.event.shortcut.KeyboardShortcut;
 
+/**
+ * A specialized profile to deal with keyboard events.
+ * 
+ * @author pierre
+ *
+ * @param <A> User defined action
+ */
 public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProfile<KeyboardShortcut, A> {
 	public Actionable<?> handleKey(KeyDuoable<?> event) {
 		// public void handleKey(DLKeyEvent e) {
@@ -36,7 +43,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Defines a camera keyboard shortcut to bind the given action.
+	 * Defines a keyboard shortcut to bind the given action.
 	 * 
 	 * @param key
 	 *            shortcut
@@ -52,7 +59,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Defines a camera keyboard shortcut to bind the given action.
+	 * Defines a keyboard shortcut to bind the given action.
 	 * <p>
 	 * High-level version of {@link #setShortcut(Integer, Integer, Actionable)}.
 	 * 
@@ -71,7 +78,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Defines a camera keyboard shortcut to bind the given action.
+	 * Defines a keyboard shortcut to bind the given action.
 	 * <p>
 	 * Low-level version of {@link #setShortcut(Integer, Character, Actionable)}.
 	 * 
@@ -93,7 +100,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Defines a camera keyboard shortcut to bind the given action.
+	 * Defines a keyboard shortcut to bind the given action.
 	 * 
 	 * @param vKey
 	 *            coded key (such PApplet.UP) that defines the shortcut
@@ -109,7 +116,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Removes the camera keyboard shortcut.
+	 * Removes the keyboard shortcut.
 	 * 
 	 * @param key
 	 *            shortcut
@@ -119,7 +126,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Removes the camera keyboard shortcut.
+	 * Removes the keyboard shortcut.
 	 * <p>
 	 * High-level version of {@link #removeShortcut(Integer, Integer)}.
 	 * 
@@ -136,7 +143,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Removes the camera keyboard shortcut.
+	 * Removes the keyboard shortcut.
 	 * <p>
 	 * low-level version of {@link #removeShortcut(Integer, Character)}.
 	 * 
@@ -152,7 +159,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Removes the camera keyboard shortcut.
+	 * Removes the keyboard shortcut.
 	 * 
 	 * @param vKey
 	 *            coded key (such PApplet.UP) that defines the shortcut
@@ -162,7 +169,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns the action that is bound to the given camera keyboard shortcut.
+	 * Returns the action that is bound to the given keyboard shortcut.
 	 * 
 	 * @param key
 	 *            shortcut
@@ -173,7 +180,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns the action that is bound to the given camera keyboard shortcut.
+	 * Returns the action that is bound to the given keyboard shortcut.
 	 * <p>
 	 * Low-level version of {@link #shortcut(Integer, Character)}
 	 * 
@@ -190,7 +197,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns the action that is bound to the given camera keyboard shortcut.
+	 * Returns the action that is bound to the given keyboard shortcut.
 	 * <p>
 	 * High-level version of {@link #shortcut(Integer, Integer)}
 	 * 
@@ -208,7 +215,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns the action that is bound to the given camera keyboard shortcut.
+	 * Returns the action that is bound to the given keyboard shortcut.
 	 * 
 	 * @param vKey
 	 *            coded key (such PApplet.UP) that defines the shortcut
@@ -219,7 +226,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns true if the given camera keyboard shortcut binds an action.
+	 * Returns true if the given keyboard shortcut binds an action.
 	 * 
 	 * @param key
 	 *            shortcut
@@ -229,7 +236,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns true if the given camera keyboard shortcut binds an action.
+	 * Returns true if the given keyboard shortcut binds an action.
 	 * <p>
 	 * High-level version of {@link #isKeyInUse(Integer, Integer)}.
 	 * 
@@ -246,7 +253,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns true if the given camera keyboard shortcut binds an action.
+	 * Returns true if the given keyboard shortcut binds an action.
 	 * <p>
 	 * Low-level version of {@link #isKeyInUse(Integer, Character)}.
 	 * 
@@ -262,7 +269,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns true if the given camera keyboard shortcut binds an action.
+	 * Returns true if the given keyboard shortcut binds an action.
 	 * 
 	 * @param vKey
 	 *            coded key (such PApplet.UP) that defines the shortcut
@@ -272,7 +279,7 @@ public class GenericKeyboardProfile<A extends Actionable<?>> extends GenericProf
 	}
 
 	/**
-	 * Returns true if there is a camera keyboard shortcut for the given action.
+	 * Returns true if there is a keyboard shortcut for the given action.
 	 */
 	public boolean isKeyboardActionBound(A action) {
 		return isActionMapped(action);

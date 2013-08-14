@@ -26,6 +26,13 @@ package remixlab.tersehandling.generic.profile;
 
 import remixlab.tersehandling.event.shortcut.ClickShortcut;
 
+/**
+ * A specialized profile to deal with click events.
+ * 
+ * @author pierre
+ *
+ * @param <A> User defined action
+ */
 public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile<ClickShortcut, A> {
 	/**
 	 * Returns true if the given binding binds a click-action.
@@ -90,7 +97,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 * Binds the click-action to the given binding.
 	 * 
 	 * @param button
-	 *            mouse button defining the binding
+	 *            button defining the binding
 	 * @param nc
 	 *            number of clicks that defines the binding
 	 * @param action
@@ -110,15 +117,11 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 * @param mask
 	 *            modifier mask defining the binding
 	 * @param button
-	 *            mouse button defining the binding
+	 *            button defining the binding
 	 * @param nc
 	 *            number of clicks that defines the binding
 	 * @param action
 	 *            action to be bound
-	 * 
-	 *            <b>Attention:</b> Mac users should avoid using the CTRL
-	 *            modifier key, since its use is reserved to emulate the right
-	 *            button of the mouse.
 	 */
 	public void setClickBinding(Integer mask, Integer button, Integer nc, A action) {
 		if (isClickBindingInUse(mask, button, nc)) {
@@ -129,7 +132,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	}
 
 	/**
-	 * Removes the mouse-click binding.
+	 * Removes the click binding.
 	 * 
 	 * @param button
 	 *            binding
@@ -139,10 +142,10 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	}
 
 	/**
-	 * Removes the mouse-click binding.
+	 * Removes the click binding.
 	 * 
 	 * @param button
-	 *            mouse button defining the binding
+	 *            button defining the binding
 	 * @param nc
 	 *            number of clicks defining the binding
 	 */
@@ -151,12 +154,12 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	}
 
 	/**
-	 * Removes the mouse-click binding.
+	 * Removes the click binding.
 	 * 
 	 * @param mask
 	 *            modifier mask defining the binding
 	 * @param button
-	 *            mouse button defining the binding
+	 *            button defining the binding
 	 * @param nc
 	 *            number of clicks defining the binding
 	 */
@@ -178,7 +181,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 * Returns the click-action associated to the given binding.
 	 * 
 	 * @param button
-	 *            mouse button defining the binding
+	 *            button defining the binding
 	 * @param nc
 	 *            number of clicks defining the binding
 	 */
@@ -192,7 +195,7 @@ public class GenericClickProfile<A extends Actionable<?>> extends GenericProfile
 	 * @param mask
 	 *            modifier mask defining the binding
 	 * @param button
-	 *            mouse button defining the binding
+	 *            button defining the binding
 	 * @param nc
 	 *            number of clicks defining the binding
 	 */

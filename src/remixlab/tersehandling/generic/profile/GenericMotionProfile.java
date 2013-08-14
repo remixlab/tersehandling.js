@@ -26,13 +26,20 @@ package remixlab.tersehandling.generic.profile;
 
 import remixlab.tersehandling.event.shortcut.*;
 
+/**
+ * A specialized profile to deal with motion events.
+ * 
+ * @author pierre
+ *
+ * @param <A> User defined action
+ */
 public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfile<ButtonShortcut, A> {
 	public boolean isBindingInUse() {
 		return isBindingInUse(TH_NOMODIFIER_MASK, TH_NOBUTTON);
 	}
 
 	/**
-	 * Returns true if the given binding binds a camera mouse-action.
+	 * Returns true if the given binding binds an action.
 	 * 
 	 * @param button
 	 */
@@ -41,7 +48,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Returns true if the given binding binds a camera mouse-action.
+	 * Returns true if the given binding binds an action.
 	 * 
 	 * @param mask
 	 * @param button
@@ -51,7 +58,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Returns true if the given camera mouse-action is bound.
+	 * Returns true if the given action is bound.
 	 */
 	public boolean isActionBound(A action) {
 		return isActionMapped(action);
@@ -66,7 +73,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Binds the camera mouse-action to the given binding
+	 * Binds the action to the given binding
 	 * 
 	 * @param button
 	 * @param action
@@ -76,15 +83,11 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Binds the camera mouse-action to the given binding
+	 * Binds the action to the given binding
 	 * 
 	 * @param mask
 	 * @param button
 	 * @param action
-	 * 
-	 * <b>Attention:</b> Mac users should avoid using the CTRL
-	 * modifier key, since its use is reserved to emulate the right
-	 * button of the mouse.
 	 */
 	public void setBinding(Integer mask, Integer button, A action) {
 		if (isBindingInUse(mask, button)) {
@@ -102,7 +105,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Removes the camera mouse-action binding.
+	 * Removes the action binding.
 	 * 
 	 * @param button
 	 */
@@ -111,7 +114,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Removes the camera mouse-action binding.
+	 * Removes the action binding.
 	 * 
 	 * @param mask
 	 * @param button
@@ -125,7 +128,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Returns the camera mouse-action associated to the given binding.
+	 * Returns the action associated to the given binding.
 	 * 
 	 * @param button
 	 */
@@ -134,7 +137,7 @@ public class GenericMotionProfile<A extends Actionable<?>> extends GenericProfil
 	}
 
 	/**
-	 * Returns the camera mouse-action associated to the given binding.
+	 * Returns the action associated to the given binding.
 	 * 
 	 * @param mask
 	 * @param button

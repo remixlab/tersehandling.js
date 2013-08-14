@@ -72,6 +72,11 @@ public class GenericProfile<K extends Shortcut, A extends Actionable<?>> impleme
 		map = new HashMap<K, A>();
 	}
 
+	/**
+	 * Copy constructor. Use {@link #get()} to copy this profile.
+	 * 
+	 * @param other profile to be copied
+	 */
 	protected GenericProfile(GenericProfile<K, A> other) {
 		map = new HashMap<K, A>();
 		for (Map.Entry<K, A> entry : other.map().entrySet()) {
@@ -81,6 +86,9 @@ public class GenericProfile<K extends Shortcut, A extends Actionable<?>> impleme
 		}
 	}
 
+	/**
+	 * Returns a copy of this profile.
+	 */
 	@Override
 	public GenericProfile<K, A> get() {
 		return new GenericProfile<K, A>(this);
@@ -167,6 +175,9 @@ public class GenericProfile<K extends Shortcut, A extends Actionable<?>> impleme
 		return map.containsValue(action);
 	}
 
+	/**
+	 * Returns a description of all the bindings this profile holds.
+	 */
 	public String description() {
 		String result = new String();
 		for (Entry<K, A> entry : map.entrySet())

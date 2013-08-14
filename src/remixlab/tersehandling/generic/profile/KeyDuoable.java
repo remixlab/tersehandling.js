@@ -26,6 +26,16 @@ package remixlab.tersehandling.generic.profile;
 
 import remixlab.tersehandling.event.shortcut.KeyboardShortcut;
 
+/**
+ * A specialized Duoable interface to deal with keyboard events.
+ * 
+ * @author pierre
+ *
+ * @param <A> Actionable set of actions that may be attached to the keyboard event.
+ */
 public interface KeyDuoable<A extends Actionable<?>> extends Duoable<A> {
+	/**
+	 * Interface to keyboard event shortcut.
+	 */
 	public KeyboardShortcut keyShortcut();
 }

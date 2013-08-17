@@ -70,8 +70,7 @@ public class DOF2Event extends MotionEvent {
 		this.dy = 0f;
 	}
 
-	public DOF2Event(DOF2Event prevEvent, float x, float y, int modifiers,
-			int button) {
+	public DOF2Event(DOF2Event prevEvent, float x, float y, int modifiers, int button) {
 		this(x, y, modifiers, button);
 		setPreviousEvent(prevEvent);
 
@@ -136,8 +135,7 @@ public class DOF2Event extends MotionEvent {
 				rel = true;
 				this.dx = this.getX() - ((DOF2Event) prevEvent).getX();
 				this.dy = this.getY() - ((DOF2Event) prevEvent).getY();
-				distance = Util.distance(x, y, ((DOF2Event) prevEvent).getX(),
-						((DOF2Event) prevEvent).getY());
+				distance = Util.distance(x, y, ((DOF2Event) prevEvent).getX(), ((DOF2Event) prevEvent).getY());
 				delay = this.timestamp() - prevEvent.timestamp();
 				if (delay == 0)
 					speed = distance;
@@ -203,7 +201,7 @@ public class DOF2Event extends MotionEvent {
 		DOF1Event e1;
 		if (fromX) {
 			if (relative()) {
-				pe1 = new DOF1Event(getPrevX(), getModifiers(), getButton());
+				pe1 = new DOF1Event(getPrevX(), getModifiers(), getButton());				
 				e1 = new DOF1Event(pe1, getX(), getModifiers(), getButton());
 			} else {
 				e1 = new DOF1Event(getX(), getModifiers(), getButton());
@@ -216,6 +214,10 @@ public class DOF2Event extends MotionEvent {
 				e1 = new DOF1Event(getY(), getModifiers(), getButton());
 			}
 		}
+		e1.timestamp = this.timestamp();
+		e1.delay = this.delay();
+		e1.speed = this.speed();
+		e1.distance = this.distance();
 		return e1;
 	}
 }

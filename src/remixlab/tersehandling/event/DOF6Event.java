@@ -80,8 +80,7 @@ public class DOF6Event extends MotionEvent {
 	protected Float ry, dry;
 	protected Float rz, drz;
 
-	public DOF6Event(float x, float y, float z, float rx, float ry, float rz,
-			int modifiers, int button) {
+	public DOF6Event(float x, float y, float z, float rx, float ry, float rz, int modifiers, int button) {
 		super(modifiers, button);
 		this.x = x;
 		this.dx = 0f;
@@ -97,8 +96,9 @@ public class DOF6Event extends MotionEvent {
 		this.drz = 0f;
 	}
 
-	public DOF6Event(DOF6Event prevEvent, float x, float y, float z, float rx,
-			float ry, float rz, int modifiers, int button) {
+	public DOF6Event(DOF6Event prevEvent,
+			         float x, float y, float z, float rx,
+			         float ry, float rz, int modifiers, int button) {
 		this(x, y, z, rx, ry, rz, modifiers, button);
 		setPreviousEvent(prevEvent);
 		/**
@@ -132,8 +132,7 @@ public class DOF6Event extends MotionEvent {
 	}
 
 	// idem
-	public DOF6Event(DOF6Event prevEvent, float x, float y, float z, float rx,
-			float ry, float rz) {
+	public DOF6Event(DOF6Event prevEvent, float x, float y, float z, float rx,	float ry, float rz) {
 		super();
 		this.x = x;
 		this.dx = 0f;
@@ -338,24 +337,24 @@ public class DOF6Event extends MotionEvent {
 		DOF3Event e3;
 		if (relative()) {
 			if (fromTranslation) {
-				pe3 = new DOF3Event(getPrevX(), getPrevY(), getPrevZ(),
-						getModifiers(), getButton());
-				e3 = new DOF3Event(pe3, getX(), getY(), getZ(), getModifiers(),
-						getButton());
+				pe3 = new DOF3Event(getPrevX(), getPrevY(), getPrevZ(),	getModifiers(), getButton());
+				e3 = new DOF3Event(pe3, getX(), getY(), getZ(), getModifiers(),	getButton());
 			} else {
-				pe3 = new DOF3Event(getPrevRX(), getPrevRY(), getPrevRZ(),
-						getModifiers(), getButton());
-				e3 = new DOF3Event(pe3, getRX(), getRY(), getRZ(),
-						getModifiers(), getButton());
+				pe3 = new DOF3Event(getPrevRX(), getPrevRY(), getPrevRZ(), getModifiers(), getButton());
+				e3 = new DOF3Event(pe3, getRX(), getRY(), getRZ(), getModifiers(), getButton());
 			}
 		} else {
-			if (fromTranslation)
-				e3 = new DOF3Event(getX(), getY(), getZ(), getModifiers(),
-						getButton());
-			else
-				e3 = new DOF3Event(getRX(), getRY(), getRZ(), getModifiers(),
-						getButton());
+			if (fromTranslation) {
+				e3 = new DOF3Event(getX(), getY(), getZ(), getModifiers(), getButton());
+			}
+			else {
+				e3 = new DOF3Event(getRX(), getRY(), getRZ(), getModifiers(), getButton());
+			}
 		}
+		e3.timestamp = this.timestamp();
+		e3.delay = this.delay();
+		e3.speed = this.speed();
+		e3.distance = this.distance();
 		return e3;
 	}
 }

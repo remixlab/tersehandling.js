@@ -56,13 +56,11 @@ public class TerseEvent implements EventConstants, Copyable {
 		.isEquals();
 	}
 	
-  //protected Actionable<?> action;
   protected final Integer modifiers;
-  protected final Long timestamp;
+  protected Long timestamp;
   
   public TerseEvent() {
     this.modifiers = 0;
-    //this.action = null;
     timestamp = System.currentTimeMillis();
   }
  
@@ -74,8 +72,7 @@ public class TerseEvent implements EventConstants, Copyable {
   
   protected TerseEvent(TerseEvent other) {
 		this.modifiers = new Integer(other.modifiers);
-		//this.action = other.action;
-		this.timestamp = new Long(System.currentTimeMillis());
+		this.timestamp = new Long(other.timestamp);
 	}  
   
   @Override

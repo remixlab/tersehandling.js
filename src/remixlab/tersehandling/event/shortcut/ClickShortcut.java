@@ -24,11 +24,13 @@
 
 package remixlab.tersehandling.event.shortcut;
 
-import com.flipthebird.gwthashcodeequals.*;
+
 
 //import remixlab.dandelion.core.Constants;
-import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.event.TerseEvent;
+import remixlab.util.*;
+import remixlab.util.gwthashcodeequals.EqualsBuilder;
+import remixlab.util.gwthashcodeequals.HashCodeBuilder;
 
 /**
  * This class represents agent click shortcuts.
@@ -104,30 +106,8 @@ public class ClickShortcut extends Shortcut implements Copyable {
 	 * @param c bumber of clicks
 	 */
 	public ClickShortcut(Integer m, Integer b, Integer c) {
-		/**
 		super(m);
 		this.button = b;
-		if(c <= 0)
-			this.numberOfClicks = 1;
-		else
-			this.numberOfClicks = c;
-		*/
-		
-		// /**
-	  //TODO HACK see issue: https://github.com/processing/processing/issues/1693
-		this.button = b;	  
-		//ALT
-		if(button == TH_CENTER) {
-			mask = (TH_ALT | m);
-		}
-		//META
-		else if(button == TH_RIGHT) {
-    	mask = (TH_META | m);
-		}
-		else
-			mask = m;
-		// */
-		
 		if(c <= 0)
 			this.numberOfClicks = 1;
 		else

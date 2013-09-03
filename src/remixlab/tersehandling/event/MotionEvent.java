@@ -25,9 +25,8 @@
 package remixlab.tersehandling.event;
 
 import remixlab.tersehandling.event.shortcut.*;
-
-import com.flipthebird.gwthashcodeequals.EqualsBuilder;
-import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
+import remixlab.util.gwthashcodeequals.EqualsBuilder;
+import remixlab.util.gwthashcodeequals.HashCodeBuilder;
 
 // /**
 public class MotionEvent extends TerseEvent {

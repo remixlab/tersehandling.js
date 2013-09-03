@@ -24,10 +24,10 @@
 
 package remixlab.tersehandling.event.shortcut;
 
-import com.flipthebird.gwthashcodeequals.*;
-
-import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.event.TerseEvent;
+import remixlab.util.*;
+import remixlab.util.gwthashcodeequals.EqualsBuilder;
+import remixlab.util.gwthashcodeequals.HashCodeBuilder;
 
 /**
  * This class represents mouse shortcuts.
@@ -76,11 +76,15 @@ public final class ButtonShortcut extends Shortcut implements Copyable {
 	 * @param m the mask 
 	 * @param b mouse button
 	 */
+	///**
 	public ButtonShortcut(Integer m, Integer b) {
-		//super(m);
-		//this.button = b;
-		
-		// /**
+		super(m);
+		this.button = b;
+	}
+	//*/
+	
+	/**
+	public ButtonShortcut(Integer m, Integer b) {		
 	  //TODO HACK see issue: https://github.com/processing/processing/issues/1693
 		this.button = b;	  
 		//ALT
@@ -93,8 +97,8 @@ public final class ButtonShortcut extends Shortcut implements Copyable {
 		}
 		else
 			mask = m;
-		// */
 	}
+	*/
 	
 	protected ButtonShortcut(ButtonShortcut other) {
 		super(other);

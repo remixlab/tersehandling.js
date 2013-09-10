@@ -24,14 +24,13 @@
 
 package remixlab.tersehandling.event;
 
+import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.core.EventConstants;
 import remixlab.tersehandling.event.shortcut.Shortcut;
-import remixlab.util.Copyable;
-import remixlab.util.gwthashcodeequals.EqualsBuilder;
-import remixlab.util.gwthashcodeequals.HashCodeBuilder;
+import remixlab.tersehandling.gwthashcodeequals.EqualsBuilder;
+import remixlab.tersehandling.gwthashcodeequals.HashCodeBuilder;
 
 public class TerseEvent implements EventConstants, Copyable {
-	//TODO fix modifiers!
 	@Override
 	public int hashCode() {
     return new HashCodeBuilder(17, 37).		

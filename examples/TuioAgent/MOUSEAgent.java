@@ -3,7 +3,6 @@ import remixlab.tersehandling.generic.event.*;
 import remixlab.tersehandling.generic.agent.*;
 import remixlab.tersehandling.generic.profile.*;
 import remixlab.tersehandling.event.*;
-import remixlab.util.Util;
 
 public class MOUSEAgent extends GenericMotionAgent<GenericMotionProfile<MotionAction>, GenericClickProfile<ClickAction>> implements EventConstants {
   GenericDOF2Event<MotionAction> event, prevEvent;

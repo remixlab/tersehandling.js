@@ -29,8 +29,7 @@ package remixlab.tersehandling.event.shortcut;
 //import remixlab.dandelion.core.Constants;
 import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.event.TerseEvent;
-import remixlab.tersehandling.gwthashcodeequals.EqualsBuilder;
-import remixlab.tersehandling.gwthashcodeequals.HashCodeBuilder;
+import com.flipthebird.gwthashcodeequals.*;
 
 /**
  * This class represents agent click shortcuts.

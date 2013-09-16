@@ -30,8 +30,7 @@ package remixlab.tersehandling.event.shortcut;
 import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.core.EventConstants;
 import remixlab.tersehandling.event.*;
-import remixlab.tersehandling.gwthashcodeequals.EqualsBuilder;
-import remixlab.tersehandling.gwthashcodeequals.HashCodeBuilder;
+import com.flipthebird.gwthashcodeequals.*;
 
 public class Shortcut implements EventConstants, Copyable {
 	@Override

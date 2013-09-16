@@ -28,8 +28,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import remixlab.tersehandling.event.shortcut.KeyboardShortcut;
-import remixlab.tersehandling.gwthashcodeequals.EqualsBuilder;
-import remixlab.tersehandling.gwthashcodeequals.HashCodeBuilder;
+import com.flipthebird.gwthashcodeequals.*;
 
 public class KeyboardEvent extends TerseEvent {
 	@Override

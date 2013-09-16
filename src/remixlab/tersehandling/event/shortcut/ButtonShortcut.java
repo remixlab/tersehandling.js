@@ -26,8 +26,7 @@ package remixlab.tersehandling.event.shortcut;
 
 import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.event.TerseEvent;
-import remixlab.tersehandling.gwthashcodeequals.EqualsBuilder;
-import remixlab.tersehandling.gwthashcodeequals.HashCodeBuilder;
+import com.flipthebird.gwthashcodeequals.*;
 
 /**
  * This class represents mouse shortcuts.

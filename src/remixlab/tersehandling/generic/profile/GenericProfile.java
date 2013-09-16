@@ -31,8 +31,7 @@ import java.util.Map.Entry;
 import remixlab.tersehandling.core.Copyable;
 import remixlab.tersehandling.core.EventConstants;
 import remixlab.tersehandling.event.shortcut.*;
-import remixlab.tersehandling.gwthashcodeequals.EqualsBuilder;
-import remixlab.tersehandling.gwthashcodeequals.HashCodeBuilder;
+import com.flipthebird.gwthashcodeequals.*;
 
 /**
  * A mapping between TerseEvent shortcuts and user-defined actions

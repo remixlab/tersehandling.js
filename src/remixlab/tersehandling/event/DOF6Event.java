@@ -24,8 +24,10 @@
 
 package remixlab.tersehandling.event;
 
+import com.flipthebird.gwthashcodeequals.EqualsBuilder;
+import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
+
 import remixlab.tersehandling.core.Util;
-import com.flipthebird.gwthashcodeequals.*;
 
 public class DOF6Event extends MotionEvent {
 	@Override

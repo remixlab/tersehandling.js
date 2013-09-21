@@ -1,0 +1,120 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--                                                               -->
+    <!-- Consider inlining CSS to reduce the number of requested files -->
+    <!--                                                               -->
+    <link type="text/css" rel="stylesheet" href="TestProscene.css">
+
+    <!--                                           -->
+    <!-- Any title is fine                         -->
+    <!--                                           -->
+    <title>Boring Click And Drag</title>
+    
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    <script type="text/javascript" language="javascript" src="testproscene/testproscene.nocache.js"></script>
+    
+	<script src="processing-1.4.1.js"></script>
+	<script language='javascript'>
+	  function gwtOnLoad() {		  			
+		    var p = new Processing("processing-canvas", sketchProc);			
+	  }	 	 
+	</script> 
+<script  type="text/javascript">
+
+
+
+function sketchProc(processing) {
+
+
+	var w = 800;
+	var h = 500;
+	
+	var agent;
+	var terseHandler;
+	var circles;	
+	
+	var eventHandler;
+
+	processing.setup = function() {
+	
+		
+		
+		processing.size(w,h);			
+
+		terseHandler = new TerseHandler();	
+		
+		
+		agent = new MouseAgent(terseHandler, "my_mouse");
+		eventHandler = new JsEventHandler(processing.externals.canvas, agent, "mouseEvent");
+		
+		
+		circles = new Array(50);
+		for (var i = 0; i < circles.length; i++)
+			circles[i] = new GrabbableCircle(agent,this);
+		
+		
+	};
+
+	processing.draw = function() {
+	
+	  
+
+		  processing.background(0);
+		  for (var i = 0; i < circles.length; i++){
+			if ( circles[i].grabsAgent(agent) )
+			  circles[i].draw(processing.color(255, 0, 0));
+			else
+			  circles[i].draw();
+		  }
+		  terseHandler.handle();
+		  
+	};
+  
+}
+
+
+</script>    
+    
+    
+  </head>
+
+  <!--                                           -->
+  <!-- The body can have arbitrary html, or      -->
+  <!-- you can leave the body empty if you want  -->
+  <!-- to create a completely dynamic UI.        -->
+  <!--                                           -->
+  <body>
+
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+    
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+
+    <h1>Test Proscene</h1>
+    
+	<div style="text-align:center" >
+		<canvas id="processing-canvas" > </canvas> 
+	</div>	
+    
+
+
+  </body>
+</html>

@@ -51,6 +51,38 @@ public class TerseHandler {
 	// D E V I C E S & E V E N T S
 	protected HashMap<String, Agent> agents;
 	protected LinkedList<EventGrabberTuple> eventTupleQueue;
+	
+	public static final String prettyVersion = "0.9.50";
+
+	public static final String version = "1";
+	
+	public static String prettyVersion() {
+		return prettyVersion;
+	}
+
+	public static final int versionNumber() {
+		return Integer.parseInt(version);
+	}
+
+	public static final String version() {
+		return version;
+	}
+
+	public static int majorPrettyVersionNumber() {
+		return Integer.parseInt(majorPrettyVersion());
+	}
+
+	public static String majorPrettyVersion() {
+		return prettyVersion.substring(0, prettyVersion.indexOf("."));
+	}
+
+	public static float minorPrettyVersionNumber() {
+		return Float.parseFloat(minorPrettyVersion());
+	}
+
+	public static String minorPrettyVersion() {
+		return prettyVersion.substring(prettyVersion.indexOf(".") + 1);
+	}
 
 	public TerseHandler() {
 		// agents

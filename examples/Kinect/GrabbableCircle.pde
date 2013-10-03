@@ -95,9 +95,11 @@ public class GrabbableCircle extends AbstractGrabber {
           radiusY += ((GenericDOF2Event<?>)event).getDY();
           break;
         case CHANGE_POS_SHAPE:
-          radiusX += ((GenericDOF6Event<?>)event).getZ();
-          radiusY += ((GenericDOF6Event<?>)event).getZ();
-          setPosition(((GenericDOF6Event<?>)event).getX(),((GenericDOF6Event<?>)event).getY());
+          radiusX = ((GenericDOF6Event<?>)event).getRX();
+          radiusY = ((GenericDOF6Event<?>)event).getRY();
+          //center.x = ((GenericDOF6Event<?>)event).getX();
+          //center.y = ((GenericDOF6Event<?>)event).getY();     
+          setPosition(((GenericDOF6Event<?>)event).getX(),((GenericDOF6Event<?>)event).getY());           
           break;
         }
     }

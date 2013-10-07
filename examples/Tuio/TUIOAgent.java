@@ -54,8 +54,9 @@ implements EventConstants {
   // called when a cursor is removed from the scene
   public void removeTuioCursor(TuioCursor tcur) {
     event = new GenericDOF2Event<MotionAction>(prevEvent, -1000, -1000, 0, 0);
-    updateGrabber(event);
     grabMap.remove(tcur.getCursorID());
+    disableTracking();
+	enableTracking();
   }
 }
 

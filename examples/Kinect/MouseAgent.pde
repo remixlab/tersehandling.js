@@ -15,7 +15,6 @@ public class MouseAgent extends GenericMotionAgent<GenericMotionProfile<MotionAc
     if ( e.getAction() == processing.event.MouseEvent.MOVE ) {
       event = new GenericDOF2Event<MotionAction>(prevEvent, e.getX(), e.getY(), e.getModifiers(), e.getButton());
       updateGrabber(event);
-      kinectAgent.setDefaultGrabber(trackedGrabber());
       prevEvent = event.get();
     }
     if ( e.getAction() == processing.event.MouseEvent.DRAG ) {

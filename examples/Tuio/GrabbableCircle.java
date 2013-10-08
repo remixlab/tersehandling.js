@@ -1,8 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PVector;
-import remixlab.tersehandling.core.AbstractGrabber;
-import remixlab.tersehandling.core.Agent;
+import remixlab.tersehandling.core.*;
 import remixlab.tersehandling.generic.event.GenericDOF2Event;
 import remixlab.tersehandling.generic.profile.Duoable;
 import remixlab.tersehandling.event.TerseEvent;
@@ -17,8 +16,8 @@ public class GrabbableCircle extends AbstractGrabber {
   PApplet parent;
   PGraphics canvas;
 
-  public GrabbableCircle(PApplet parent, PGraphics canvas, Agent agent) {
-    agent.addInPool(this);
+  public GrabbableCircle(PApplet parent, PGraphics canvas, TerseHandler handler) {
+    super(handler);
     sWeight = 4;
     this.parent = parent;
     this.canvas = canvas;
@@ -27,8 +26,8 @@ public class GrabbableCircle extends AbstractGrabber {
     setPosition();
   }
 
-  public GrabbableCircle(PApplet parent, PGraphics canvas, Agent agent, PVector c, float r) {
-    agent.addInPool(this);
+  public GrabbableCircle(PApplet parent, PGraphics canvas, TerseHandler handler, PVector c, float r) {
+    super(handler);
     radiusX = r;
     radiusY = r;
     this.parent = parent;

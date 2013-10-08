@@ -7,12 +7,12 @@
  * */
 import SimpleOpenNI.*;
 public class KINECTAgent extends GenericMotionAgent<GenericMotionProfile<SpaceAction>, GenericClickProfile<ClickAction>> implements EventConstants {
-  GenericDOF6Event<SpaceAction> currEvent, prevEvent;
+  KINECTEvent currEvent, prevEvent;
   SimpleOpenNI  context;    //Context for the Kinect handler
+  Hand prevLeft,prevRight;  // Previous Hands position
   Hand left,right;          // Hands position
   PVector posit;            // The vector with position values calculated with hands positions
   PVector rotat;            // The vector with rotation values calculated with hands positions
-  PVector starting;         // Start position, set when two hands are detected
   
   /****************************************************************************/
   /******************************* CONSTRUCTORS *******************************/
@@ -25,7 +25,6 @@ public class KINECTAgent extends GenericMotionAgent<GenericMotionProfile<SpaceAc
     super(new GenericMotionProfile<SpaceAction>(), new GenericClickProfile<ClickAction>(), h, n);
     //default bindings
     profile().setBinding(SpaceAction.CHANGE_POS_SHAPE);
-    disableTracking();
     //setSensitivities(1, 1, 0.00001, 0.0001, 0.0001, 0.02);
     
     //Kinect init
@@ -45,31 +44,22 @@ public class KINECTAgent extends GenericMotionAgent<GenericMotionProfile<SpaceAc
        // Initialize the hands vectors
        left = new Hand(color(255, 0, 0));
        right = new Hand(color(0, 255, 0));
-       right.setPoint(new PVector(50,0,0));
+       right.setPosition(new PVector(50,0,0));
        //Initialize the movement vectors
        posit=rotat=new PVector(0,0,0);
        
        //Update for the first time the hands to define the starting vector
        update();
-       starting=new PVector(0,0,0);
-       starting.x=((right.getPoint().x+left.getPoint().x)/2);
-       starting.y=((right.getPoint().y+left.getPoint().y)/2);
-       starting.z=((right.getPoint().z+left.getPoint().z)/2);
      }
   }
   
   @Override
-  public GenericDOF6Event<SpaceAction> feed() {
-    currEvent = new GenericDOF6Event<SpaceAction>(prevEvent, kinectPos.x, kinectPos.y, kinectPos.z, 
-                                                             kinectRot.x, kinectRot.y, kinectRot.z, 0, 0);
+  public KINECTEvent feed() {
+    currEvent = new KINECTEvent(prevEvent, left, right);
+    updateGrabber(currEvent); 
     prevEvent = currEvent.get();                                                          
     return currEvent;             
   }
-  
-  /****************************************************************************/
-  /**************************** GETTERS AND SETTERS ***************************/
-  /****************************************************************************/
-  
   /****************************************************************************/
   /********************************** METHODS *********************************/
   /****************************************************************************/
@@ -103,9 +93,9 @@ public class KINECTAgent extends GenericMotionAgent<GenericMotionProfile<SpaceAc
   public PVector positionVector(){
     posit=new PVector(0,0,0);
     if(isActiveUser()){
-      posit.x=((left.getPoint().x+right.getPoint().x)/2);
-      posit.y=((left.getPoint().y+right.getPoint().y)/2);
-      posit.z=1300-((left.getPoint().z+right.getPoint().z)/2);
+      posit.x=((left.position().x+right.position().x)/2);
+      posit.y=((left.position().y+right.position().y)/2);
+      posit.z=1300-((left.position().z+right.position().z)/2);
     }
     return posit;
   }
@@ -116,12 +106,12 @@ public class KINECTAgent extends GenericMotionAgent<GenericMotionProfile<SpaceAc
   public PVector rotationVector(){
     rotat=new PVector(0,0,0);
     if(isActiveUser()){
-      //TODO: Define a gesture to x-rotation rotation.x=(left.getPoint().x-right.getPoint().x);
+      //TODO: Define a gesture to x-rotation rotation.x=(left.position().x-right.position().x);
       //rotat.x=0;
-      //rotat.y=-(left.getPoint().z-right.getPoint().z);
-      rotat.x=abs(right.getPoint().x-left.getPoint().x);
-      rotat.y=abs(right.getPoint().y-left.getPoint().y);
-      rotat.z=(left.getPoint().y-right.getPoint().y);
+      //rotat.y=-(left.position().z-right.position().z);
+      rotat.x=abs(right.position().x-left.position().x);
+      rotat.y=abs(right.position().y-left.position().y);
+      rotat.z=(left.position().y-right.position().y);
     }
     return rotat;
   }
@@ -132,12 +122,14 @@ public class KINECTAgent extends GenericMotionAgent<GenericMotionProfile<SpaceAc
     if(isActiveUser()){
       int[] userList = context.getUsers();
       if(context.isTrackingSkeleton(userList[0])){
+        prevLeft=left;
+        prevRight=right;
         PVector leftPoint=new PVector();
         PVector rightPoint=new PVector();
         context.getJointPositionSkeleton(userList[0],SimpleOpenNI.SKEL_LEFT_HAND,leftPoint);
         context.getJointPositionSkeleton(userList[0],SimpleOpenNI.SKEL_RIGHT_HAND,rightPoint);
-        left.setPoint(getScreen(leftPoint));
-        right.setPoint(getScreen(rightPoint));
+        left.setPosition(getScreen(leftPoint));
+        right.setPosition(getScreen(rightPoint));
       }
     }
   }
@@ -170,5 +162,6 @@ public class KINECTAgent extends GenericMotionAgent<GenericMotionProfile<SpaceAc
   public void onNewUser(SimpleOpenNI curContext, int userId){
     println("New user detected: " + userId);
     curContext.startTrackingSkeleton(userId);
-  }
+  } 
+ 
 }

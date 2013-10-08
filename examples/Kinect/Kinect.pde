@@ -32,6 +32,8 @@ void setup() {
   circles = new GrabbableCircle[50];
   for (int i = 0; i < circles.length; i++)
     circles[i] = new GrabbableCircle(agent);
+  for (int i = 0; i < circles.length; i++)
+    kinectAgent.addInPool(circles[i]);
 }
 
 void draw() {

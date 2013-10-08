@@ -23,10 +23,8 @@ void setup() {
   mouseAgent = new MOUSEAgent(terseHandler, "my_mouse");
   registerMethod("mouseEvent", mouseAgent);
   circles = new GrabbableCircle[50];
-  for (int i = 0; i < circles.length; i++) {
-    circles[i] = new GrabbableCircle(this, g, mouseAgent);
-    tuioAgent.addInPool(circles[i]);
-  }
+  for (int i = 0; i < circles.length; i++)
+    circles[i] = new GrabbableCircle(this, g, terseHandler);
   tuioClient = new TuioProcessing(this, 3333);
 }
 

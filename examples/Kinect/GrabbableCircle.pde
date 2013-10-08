@@ -63,12 +63,25 @@ public class GrabbableCircle extends AbstractGrabber {
   }
 
   @Override
-    public boolean checkIfGrabsInput(TerseEvent event) {
+  public boolean checkIfGrabsInput(TerseEvent event) {
+    float threshold = 100;
+    float x,y,z;
     if (event instanceof GenericDOF2Event) {
-      float x = ((GenericDOF2Event<?>)event).getX();
-      float y = ((GenericDOF2Event<?>)event).getY();
+      x = ((GenericDOF2Event<?>)event).getX();
+      y = ((GenericDOF2Event<?>)event).getY();
       return(pow((x - center.x), 2)/pow(radiusX, 2) + pow((y - center.y), 2)/pow(radiusY, 2) <= 1);
-    }      
+    }
+    // begin kinect
+    if (event instanceof KINECTEvent) {
+      x = ((KINECTEvent)event).getX();
+      y = ((KINECTEvent)event).getY();
+      z = ((KINECTEvent) event).leftHand().position().z - ((KINECTEvent) event).rightHand().position().z;
+      if (z > threshold && (pow((x - center.x), 2)/pow(radiusX, 2) + pow((y - center.y), 2)/pow(radiusY, 2) <= 1))
+        return true;
+      else if (z < -threshold)
+        return false;
+    }
+    // end kinect    
     return false;
   }
 
@@ -77,31 +90,30 @@ public class GrabbableCircle extends AbstractGrabber {
     if (event instanceof Duoable) {
       switch ((GlobalAction) ((Duoable<?>)event).action().referenceAction()) {
         case CHANGE_COLOR:
-          contourColour = color(random(100, 255), random(100, 255), random(100, 255));
-          break;
-        case CHANGE_STROKE_WEIGHT:
-          if (event.isShiftDown()) {          
-            if (sWeight > 1)
-              sWeight--;
-          }
-          else      
-            sWeight++;    
-          break;
-        case CHANGE_POSITION:
-          setPosition( ((GenericDOF2Event<?>)event).getX(), ((GenericDOF2Event<?>)event).getY() );
-          break;
-        case CHANGE_SHAPE:
-          radiusX += ((GenericDOF2Event<?>)event).getDX();
-          radiusY += ((GenericDOF2Event<?>)event).getDY();
-          break;
-        case CHANGE_POS_SHAPE:
-          radiusX = ((GenericDOF6Event<?>)event).getRX();
-          radiusY = ((GenericDOF6Event<?>)event).getRY();
-          //center.x = ((GenericDOF6Event<?>)event).getX();
-          //center.y = ((GenericDOF6Event<?>)event).getY();     
-          setPosition(((GenericDOF6Event<?>)event).getX(),((GenericDOF6Event<?>)event).getY());           
-          break;
+        contourColour = color(random(100, 255), random(100, 255), random(100, 255));
+        break;
+      case CHANGE_STROKE_WEIGHT:
+        if (event.isShiftDown()) {          
+          if (sWeight > 1)
+            sWeight--;
         }
+        else      
+          sWeight++;    
+        break;
+      case CHANGE_POSITION:
+        setPosition( ((GenericDOF2Event<?>)event).getX(), ((GenericDOF2Event<?>)event).getY() );
+        break;
+        case CHANGE_SHAPE:
+        radiusX += ((GenericDOF2Event<?>)event).getDX();
+        radiusY += ((GenericDOF2Event<?>)event).getDY();
+        break;
+        case CHANGE_POS_SHAPE:
+        radiusX = abs( ((KINECTEvent)event).rightHand().position().x- ((KINECTEvent)event).leftHand().position().x);
+        radiusY = abs( ((KINECTEvent)event).rightHand().position().y- ((KINECTEvent)event).leftHand().position().y);        
+        setPosition(((KINECTEvent)event).getX(), ((KINECTEvent)event).getY());           
+        break;
+      }
     }
   }
 }
+

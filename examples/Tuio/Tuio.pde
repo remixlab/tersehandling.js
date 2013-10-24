@@ -1,3 +1,10 @@
+/**
+ * TUIO
+ * by Eduardo Moriana and Jean Pierre Charalambos.
+ *
+ * Doc to come...
+ */
+
 import remixlab.tersehandling.core.*;
 import java.util.Vector;
 

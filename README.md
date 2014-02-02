@@ -1,5 +1,5 @@
-TerseHandling
-=============
+TerseHandling.js
+================
 
 # Description
 
@@ -27,8 +27,8 @@ but can also backed up the event sub-system of any other third party *Java* or *
 First (and only) time setup. This is just for documentation purposes. Please visit the next sections.
 
 ```sh
-git clone https://github.com/remixlab/tersehandling.git
-cd tersehandling
+git clone https://github.com/remixlab/tersehandling.js.git
+cd tersehandling.js
 git remote add -f tersehandling https://github.com/remixlab/tersehandling_tree.git
 git subtree add --prefix src/remixlab/tersehandling tersehandling master --squash
 git remote add -f util https://github.com/remixlab/util_tree.git
@@ -41,8 +41,8 @@ Use it as any other basic github repo, i.e.,:
 
 ```sh
 # clone it:
-git clone https://github.com/remixlab/tersehandling.git
-cd tersehandling
+git clone https://github.com/remixlab/tersehandling.js.git
+cd tersehandling.js
 # pull changes in:
 # for pull requests simply refer to: https://help.github.com/articles/using-pull-requests
 ```
@@ -52,8 +52,8 @@ cd tersehandling
 Clone the repo and add the remotes (here we refer to them as ["subtrees"](http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/)):
 
 ```sh
-git clone https://github.com/remixlab/tersehandling.git
-cd tersehandling
+git clone https://github.com/remixlab/tersehandling.js.git
+cd tersehandling.js
 git remote add -f tersehandling https://github.com/remixlab/tersehandling_tree.git
 git remote add -f util https://github.com/remixlab/util_tree.git
 ```
@@ -77,6 +77,10 @@ To contribute to a particular subtree (i.e., tersehandling, or util)
 ```sh
 git subtree push --prefix=src/remixlab/<remote> <remote> master
 ```
+
+# Acknowledgements
+
+Cesar Colorado for the js port.
 
 # Author, core developer and maintainer
 

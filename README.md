@@ -20,6 +20,8 @@ for details please refer to our [wiki](https://github.com/remixlab/tersehandling
 `TerseHandling` is a full-fledged, stand-alone library which will become the new event backend for the upcoming Proscene-2 series,
 but can also backed up the event sub-system of any other third party *Java* or *Processing* library.
 
+# Usage
+
 # Hacking
 
 ## Initial setup (you don't need this!)

@@ -27,8 +27,8 @@ but can also backed up the event sub-system of any other third party *Java* or *
 First (and only) time setup. This is just for documentation purposes. Please visit the next sections.
 
 ```sh
-git clone https://github.com/remixlab/proscene.git
-cd proscene
+git clone https://github.com/remixlab/tersehandling.git
+cd tersehandling
 git remote add -f tersehandling https://github.com/remixlab/tersehandling_tree.git
 git subtree add --prefix src/remixlab/tersehandling tersehandling master --squash
 git remote add -f util https://github.com/remixlab/util_tree.git
@@ -41,8 +41,8 @@ Use it as any other basic github repo, i.e.,:
 
 ```sh
 # clone it:
-git clone https://github.com/remixlab/proscene.git
-cd proscene
+git clone https://github.com/remixlab/tersehandling.git
+cd tersehandling
 # pull changes in:
 # for pull requests simply refer to: https://help.github.com/articles/using-pull-requests
 ```

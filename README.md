@@ -1,6 +1,8 @@
 TerseHandling
 =============
 
+# Description
+
 `TerseHandling` is a framework designed for _sketching_ generic input events, i.e., transforming input events into high-level user-defined actions,
 mainly implemented using [generic programming techniques](http://en.wikipedia.org/wiki/Generics_in_Java).
 It provides its own set of events which supports up to [6-DOFs]( http://en.wikipedia.org/wiki/Degrees_of_freedom_(mechanics) ),
@@ -17,6 +19,64 @@ for details please refer to our [wiki](https://github.com/remixlab/tersehandling
 
 `TerseHandling` is a full-fledged, stand-alone library which will become the new event backend for the upcoming Proscene-2 series,
 but can also backed up the event sub-system of any other third party *Java* or *Processing* library.
+
+# Hacking
+
+## Initial setup (you don't need this!)
+
+First (and only) time setup. This is just for documentation purposes. Please visit the next sections.
+
+```sh
+git clone https://github.com/remixlab/proscene.git
+cd proscene
+git remote add -f tersehandling https://github.com/remixlab/tersehandling_tree.git
+git subtree add --prefix src/remixlab/tersehandling tersehandling master --squash
+git remote add -f util https://github.com/remixlab/util_tree.git
+git subtree add --prefix src/remixlab/util util master --squash
+```
+
+## Read-only access setup
+
+Use it as any other basic github repo, i.e.,:
+
+```sh
+# clone it:
+git clone https://github.com/remixlab/proscene.git
+cd proscene
+# pull changes in:
+# for pull requests simply refer to: https://help.github.com/articles/using-pull-requests
+```
+
+## Read-write access setup
+
+Clone the repo and add the remotes (here we refer to them as ["subtrees"](http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/)):
+
+```sh
+git clone https://github.com/remixlab/tersehandling.git
+cd tersehandling
+git remote add -f tersehandling https://github.com/remixlab/tersehandling_tree.git
+git remote add -f util https://github.com/remixlab/util_tree.git
+```
+
+Update from time to time:
+
+```sh
+#fetching command:
+git fetch <remote> master
+git subtree pull --prefix src/remixlab/<remote> <remote> master --squash
+```
+
+To contribute back to upstream:
+
+```sh
+git push
+```
+
+To contribute to a particular subtree (i.e., tersehandling, or util)
+
+```sh
+git subtree push --prefix=src/remixlab/<remote> <remote> master
+```
 
 # Author, core developer and maintainer
 

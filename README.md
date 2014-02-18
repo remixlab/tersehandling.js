@@ -79,6 +79,89 @@ To contribute to a particular subtree (i.e., tersehandling, or util)
 ```sh
 git subtree push --prefix=src/remixlab/<remote> <remote> master
 ```
+##  Compiling and export to Javascript  ##
+
+**GWT**
+
+You must have [Google Web Toolkit](http://www.gwtproject.org/) , either GWT SDK or Eclipse GWT plugin. You must be sure that the project is using GWT, select 
+project properties -> Google -> Web Toolkit -> Use Google Web Toolkit, in Eclipse.
+
+You must resolve the external jar library references, configuring the Libraries tab in the Java build path option on your Eclipse IDE.
+
+Choosing  the external jar entry, you must select it on the local folder  
+   
+
+> tersehandling.js/lib
+    
+**GWT XML**
+
+All code to export must be in a Gwt Module, a module consists of the java packages and classes, and a gwt xml where are appointed the java packages to export.
+The default xml is :
+
+> tersehandling.js\src\remixlab\tersehandling\tersehandling.gwt.xml
+
+For example the entry in the xml
+
+    <source path="core"/>
+
+refers to the java package
+
+> tersehandling.js\src\remixlab\tersehandling\core
+
+The xml must be located one folder up of the java packages.
+The xml module can refer to others gwt modules, more info on [here](http://www.gwtproject.org/doc/latest/DevGuideOrganizingProjects.html#DevGuideModuleXml)
+
+**Exporting**
+
+Selecting the project by right-clicking and choosing Google > GWT Compile.
+
+
+##  Run, modify and create examples  ##
+
+
+You can see running the examples running the html file in the war folder, to modify and create the examples 
+you must have [ProcessingStub](https://github.com/remixlab/ProcessingStub) and  resolve references, (external jars).
+ 
+
+**BoringClickAndDrag - js developer example**
+
+you can go to the file
+> tersehandling.js\examples\BoringClickAndDrag\war\Boring.html
+
+And run or modify the processing js sketch example witout export to js, the sketch objects like agent, terseHandler and circles were export to js. 
+
+If youy want create new sketch objects, you cant create it  on the package
+
+> tersehandling.js\examples\BoringClickAndDrag\src\unal\client
+
+later on the class
+
+> tersehandling.js\examples\BoringClickAndDrag\src\unal\client\ExporterFacade.java
+
+You must add the class and methods for export.
+You can see how do on [here](https://code.google.com/p/gwt-exporter/)
+The class must have a empty params  contrusctor.
+
+
+Later you must export the project to javascript and you can use the objects in Boring.html. 
+
+**ActionDrivenCallback - complete java developer example**
+you can go to the file
+> tersehandling.js\examples\ActionDrivenCallback\war\ActionDrivenCallback.html
+
+And run the example,  there is a wrapper of the sketch called ActionDrivenCallback, 
+ if you want modify the sketch or create new objects, you must do it in java and export to js.
+
+
+On the file
+
+> tersehandling.js\examples\ActionDrivenCallback\src\main\client\ActionDrivenCallback.java
+
+you can modify the sketch, if you create a new method, you must add it to the abstract class ActionDrivenCallbackFacade  in the file
+
+> tersehandling.js\examples\ActionDrivenCallback\src\main\client\ExporterFacade.java
+
+if you create new objects  for the sketch, it is not necessary to add the ExporterFacade.java, because the only thing that need to run is the ActionDrivenCallbackFacade
 
 # Acknowledgements
 

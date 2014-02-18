@@ -1,5 +1,5 @@
 function testproscene(){
-  var $intern_0 = '', $intern_35 = '" for "gwt:onLoadErrorFn"', $intern_33 = '" for "gwt:onPropertyErrorFn"', $intern_21 = '"><\/script>', $intern_10 = '#', $intern_64 = '.cache.html', $intern_12 = '/', $intern_57 = '3685658C3B5C4AEBC952CCDF1DE24D5C', $intern_58 = '7403E40C65E96EAF3EE20E6D2C11C4FC', $intern_59 = '8B3CB92ACE3444D6A733E17250D0FE46', $intern_60 = '90683BCA84A713C53CFBB7CB1244F9B7', $intern_61 = '9AF6DE3C0C8FD604F7D97193830FF788', $intern_63 = ':', $intern_27 = '::', $intern_72 = '<script defer="defer">testproscene.onInjectionDone(\'testproscene\')<\/script>', $intern_20 = '<script id="', $intern_30 = '=', $intern_11 = '?', $intern_44 = 'ActiveXObject', $intern_32 = 'Bad handler "', $intern_45 = 'ChromeTab.ChromeFrame', $intern_71 = 'DOMContentLoaded', $intern_62 = 'F4BDC809F676B5D53BF5000F762A3913', $intern_22 = 'SCRIPT', $intern_19 = '__gwt_marker_testproscene', $intern_23 = 'base', $intern_15 = 'baseUrl', $intern_4 = 'begin', $intern_3 = 'bootstrap', $intern_43 = 'chromeframe', $intern_14 = 'clear.cache.gif', $intern_29 = 'content', $intern_9 = 'end', $intern_51 = 'gecko', $intern_52 = 'gecko1_8', $intern_5 = 'gwt.codesvr=', $intern_6 = 'gwt.hosted=', $intern_7 = 'gwt.hybrid', $intern_65 = 'gwt/clean/clean.css', $intern_34 = 'gwt:onLoadErrorFn', $intern_31 = 'gwt:onPropertyErrorFn', $intern_28 = 'gwt:property', $intern_70 = 'head', $intern_55 = 'hosted.html?testproscene', $intern_69 = 'href', $intern_50 = 'ie6', $intern_49 = 'ie8', $intern_48 = 'ie9', $intern_36 = 'iframe', $intern_13 = 'img', $intern_37 = "javascript:''", $intern_66 = 'link', $intern_54 = 'loadExternalRefs', $intern_24 = 'meta', $intern_39 = 'moduleRequested', $intern_8 = 'moduleStartup', $intern_47 = 'msie', $intern_25 = 'name', $intern_41 = 'opera', $intern_38 = 'position:absolute;width:0;height:0;border:none', $intern_67 = 'rel', $intern_46 = 'safari', $intern_16 = 'script', $intern_56 = 'selectingPermutation', $intern_2 = 'startup', $intern_68 = 'stylesheet', $intern_1 = 'testproscene', $intern_17 = 'testproscene.nocache.js', $intern_26 = 'testproscene::', $intern_18 = 'undefined', $intern_53 = 'unknown', $intern_40 = 'user.agent', $intern_42 = 'webkit';
+  var $intern_0 = '', $intern_36 = '" for "gwt:onLoadErrorFn"', $intern_34 = '" for "gwt:onPropertyErrorFn"', $intern_21 = '"><\/script>', $intern_10 = '#', $intern_62 = '.cache.html', $intern_12 = '/', $intern_24 = '//', $intern_55 = '12773047B204A85D61F37ABC99D88974', $intern_56 = '7F3F9540A16861925785F2464EA459E7', $intern_57 = '84DB582C0AB9FC1D544A474164676D26', $intern_58 = '98BBCBA6ED57204D21641EB69808C903', $intern_61 = ':', $intern_28 = '::', $intern_70 = '<script defer="defer">testproscene.onInjectionDone(\'testproscene\')<\/script>', $intern_20 = '<script id="', $intern_31 = '=', $intern_11 = '?', $intern_59 = 'A0A44F0DE14C2B460392AFC8CEDB1AE5', $intern_60 = 'AD2D1ECA0D0E1EBAD5D27A6BE1D4E18C', $intern_33 = 'Bad handler "', $intern_69 = 'DOMContentLoaded', $intern_22 = 'SCRIPT', $intern_19 = '__gwt_marker_testproscene', $intern_23 = 'base', $intern_15 = 'baseUrl', $intern_4 = 'begin', $intern_3 = 'bootstrap', $intern_14 = 'clear.cache.gif', $intern_30 = 'content', $intern_9 = 'end', $intern_49 = 'gecko', $intern_50 = 'gecko1_8', $intern_5 = 'gwt.codesvr=', $intern_6 = 'gwt.hosted=', $intern_7 = 'gwt.hybrid', $intern_63 = 'gwt/clean/clean.css', $intern_35 = 'gwt:onLoadErrorFn', $intern_32 = 'gwt:onPropertyErrorFn', $intern_29 = 'gwt:property', $intern_68 = 'head', $intern_53 = 'hosted.html?testproscene', $intern_67 = 'href', $intern_48 = 'ie6', $intern_47 = 'ie8', $intern_46 = 'ie9', $intern_37 = 'iframe', $intern_13 = 'img', $intern_38 = "javascript:''", $intern_64 = 'link', $intern_52 = 'loadExternalRefs', $intern_25 = 'meta', $intern_40 = 'moduleRequested', $intern_8 = 'moduleStartup', $intern_45 = 'msie', $intern_26 = 'name', $intern_42 = 'opera', $intern_39 = 'position:absolute;width:0;height:0;border:none', $intern_65 = 'rel', $intern_44 = 'safari', $intern_16 = 'script', $intern_54 = 'selectingPermutation', $intern_2 = 'startup', $intern_66 = 'stylesheet', $intern_1 = 'testproscene', $intern_17 = 'testproscene.nocache.js', $intern_27 = 'testproscene::', $intern_18 = 'undefined', $intern_51 = 'unknown', $intern_41 = 'user.agent', $intern_43 = 'webkit';
   var $wnd = window, $doc = document, $stats = $wnd.__gwtStatsEvent?function(a){
     return $wnd.__gwtStatsEvent(a);
   }
@@ -114,6 +114,11 @@ function testproscene(){
       return $intern_0;
     }
 
+    function isLocationOk(){
+      var loc = $doc.location;
+      return loc.href == loc.protocol + $intern_24 + loc.host + loc.pathname + loc.search + loc.hash;
+    }
+
     var tempBase = tryMetaTag();
     if (tempBase == $intern_0) {
       tempBase = tryNocacheJsTag();
@@ -124,7 +129,7 @@ function testproscene(){
     if (tempBase == $intern_0) {
       tempBase = tryBaseTag();
     }
-    if (tempBase == $intern_0) {
+    if (tempBase == $intern_0 && isLocationOk()) {
       tempBase = getDirectoryOfFile($doc.location.href);
     }
     tempBase = ensureAbsoluteUrl(tempBase);
@@ -133,18 +138,18 @@ function testproscene(){
   }
 
   function processMetas(){
-    var metas = document.getElementsByTagName($intern_24);
+    var metas = document.getElementsByTagName($intern_25);
     for (var i = 0, n = metas.length; i < n; ++i) {
-      var meta = metas[i], name = meta.getAttribute($intern_25), content;
+      var meta = metas[i], name = meta.getAttribute($intern_26), content;
       if (name) {
-        name = name.replace($intern_26, $intern_0);
-        if (name.indexOf($intern_27) >= 0) {
+        name = name.replace($intern_27, $intern_0);
+        if (name.indexOf($intern_28) >= 0) {
           continue;
         }
-        if (name == $intern_28) {
-          content = meta.getAttribute($intern_29);
+        if (name == $intern_29) {
+          content = meta.getAttribute($intern_30);
           if (content) {
-            var value, eq = content.indexOf($intern_30);
+            var value, eq = content.indexOf($intern_31);
             if (eq >= 0) {
               name = content.substring(0, eq);
               value = content.substring(eq + 1);
@@ -156,25 +161,25 @@ function testproscene(){
             metaProps[name] = value;
           }
         }
-         else if (name == $intern_31) {
-          content = meta.getAttribute($intern_29);
+         else if (name == $intern_32) {
+          content = meta.getAttribute($intern_30);
           if (content) {
             try {
               propertyErrorFunc = eval(content);
             }
              catch (e) {
-              alert($intern_32 + content + $intern_33);
+              alert($intern_33 + content + $intern_34);
             }
           }
         }
-         else if (name == $intern_34) {
-          content = meta.getAttribute($intern_29);
+         else if (name == $intern_35) {
+          content = meta.getAttribute($intern_30);
           if (content) {
             try {
               onLoadErrorFunc = eval(content);
             }
              catch (e) {
-              alert($intern_32 + content + $intern_35);
+              alert($intern_33 + content + $intern_36);
             }
           }
         }
@@ -214,76 +219,59 @@ function testproscene(){
   function maybeInjectFrame(){
     if (!frameInjected) {
       frameInjected = true;
-      var iframe = $doc.createElement($intern_36);
-      iframe.src = $intern_37;
+      var iframe = $doc.createElement($intern_37);
+      iframe.src = $intern_38;
       iframe.id = $intern_1;
-      iframe.style.cssText = $intern_38;
+      iframe.style.cssText = $intern_39;
       iframe.tabIndex = -1;
       $doc.body.appendChild(iframe);
-      $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_8, millis:(new Date).getTime(), type:$intern_39});
+      $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_8, millis:(new Date).getTime(), type:$intern_40});
       iframe.contentWindow.location.replace(base + initialHtml);
     }
   }
 
-  providers[$intern_40] = function(){
+  providers[$intern_41] = function(){
     var ua = navigator.userAgent.toLowerCase();
     var makeVersion = function(result){
       return parseInt(result[1]) * 1000 + parseInt(result[2]);
     }
     ;
     if (function(){
-      return ua.indexOf($intern_41) != -1;
+      return ua.indexOf($intern_42) != -1;
     }
     ())
-      return $intern_41;
+      return $intern_42;
     if (function(){
-      return ua.indexOf($intern_42) != -1 || function(){
-        if (ua.indexOf($intern_43) != -1) {
-          return true;
-        }
-        if (typeof window[$intern_44] != $intern_18) {
-          try {
-            var obj = new ActiveXObject($intern_45);
-            if (obj) {
-              obj.registerBhoIfNeeded();
-              return true;
-            }
-          }
-           catch (e) {
-          }
-        }
-        return false;
-      }
-      ();
+      return ua.indexOf($intern_43) != -1;
+    }
+    ())
+      return $intern_44;
+    if (function(){
+      return ua.indexOf($intern_45) != -1 && $doc.documentMode >= 9;
     }
     ())
       return $intern_46;
     if (function(){
-      return ua.indexOf($intern_47) != -1 && $doc.documentMode >= 9;
+      return ua.indexOf($intern_45) != -1 && $doc.documentMode >= 8;
     }
     ())
-      return $intern_48;
-    if (function(){
-      return ua.indexOf($intern_47) != -1 && $doc.documentMode >= 8;
-    }
-    ())
-      return $intern_49;
+      return $intern_47;
     if (function(){
       var result = /msie ([0-9]+)\.([0-9]+)/.exec(ua);
       if (result && result.length == 3)
         return makeVersion(result) >= 6000;
     }
     ())
-      return $intern_50;
+      return $intern_48;
     if (function(){
-      return ua.indexOf($intern_51) != -1;
+      return ua.indexOf($intern_49) != -1;
     }
     ())
-      return $intern_52;
-    return $intern_53;
+      return $intern_50;
+    return $intern_51;
   }
   ;
-  values[$intern_40] = {gecko1_8:0, ie6:1, ie8:2, ie9:3, opera:4, safari:5};
+  values[$intern_41] = {gecko1_8:0, ie6:1, ie8:2, ie9:3, opera:4, safari:5};
   testproscene.onScriptLoad = function(){
     if (frameInjected) {
       loadDone = true;
@@ -293,7 +281,7 @@ function testproscene(){
   ;
   testproscene.onInjectionDone = function(){
     scriptsDone = true;
-    $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_54, millis:(new Date).getTime(), type:$intern_9});
+    $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_52, millis:(new Date).getTime(), type:$intern_9});
     maybeStartModule();
   }
   ;
@@ -306,25 +294,25 @@ function testproscene(){
       $wnd.location.reload();
       return;
     }
-    initialHtml = $intern_55;
+    initialHtml = $intern_53;
     strongName = $intern_0;
   }
-  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_3, millis:(new Date).getTime(), type:$intern_56});
+  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_3, millis:(new Date).getTime(), type:$intern_54});
   if (!isHostedMode()) {
     try {
-      unflattenKeylistIntoAnswers([$intern_46], $intern_57);
-      unflattenKeylistIntoAnswers([$intern_48], $intern_58);
-      unflattenKeylistIntoAnswers([$intern_41], $intern_59);
-      unflattenKeylistIntoAnswers([$intern_49], $intern_60);
-      unflattenKeylistIntoAnswers([$intern_50], $intern_61);
-      unflattenKeylistIntoAnswers([$intern_52], $intern_62);
-      strongName = answers[computePropValue($intern_40)];
-      var idx = strongName.indexOf($intern_63);
+      unflattenKeylistIntoAnswers([$intern_50], $intern_55);
+      unflattenKeylistIntoAnswers([$intern_48], $intern_56);
+      unflattenKeylistIntoAnswers([$intern_42], $intern_57);
+      unflattenKeylistIntoAnswers([$intern_44], $intern_58);
+      unflattenKeylistIntoAnswers([$intern_47], $intern_59);
+      unflattenKeylistIntoAnswers([$intern_46], $intern_60);
+      strongName = answers[computePropValue($intern_41)];
+      var idx = strongName.indexOf($intern_61);
       if (idx != -1) {
         softPermutationId = Number(strongName.substring(idx + 1));
         strongName = strongName.substring(0, idx);
       }
-      initialHtml = strongName + $intern_64;
+      initialHtml = strongName + $intern_62;
     }
      catch (e) {
       return;
@@ -334,16 +322,16 @@ function testproscene(){
   function onBodyDone(){
     if (!bodyDone) {
       bodyDone = true;
-      if (!__gwt_stylesLoaded[$intern_65]) {
-        var l = $doc.createElement($intern_66);
-        __gwt_stylesLoaded[$intern_65] = l;
-        l.setAttribute($intern_67, $intern_68);
-        l.setAttribute($intern_69, base + $intern_65);
-        $doc.getElementsByTagName($intern_70)[0].appendChild(l);
+      if (!__gwt_stylesLoaded[$intern_63]) {
+        var l = $doc.createElement($intern_64);
+        __gwt_stylesLoaded[$intern_63] = l;
+        l.setAttribute($intern_65, $intern_66);
+        l.setAttribute($intern_67, base + $intern_63);
+        $doc.getElementsByTagName($intern_68)[0].appendChild(l);
       }
       maybeStartModule();
       if ($doc.removeEventListener) {
-        $doc.removeEventListener($intern_71, onBodyDone, false);
+        $doc.removeEventListener($intern_69, onBodyDone, false);
       }
       if (onBodyDoneTimerId) {
         clearInterval(onBodyDoneTimerId);
@@ -352,7 +340,7 @@ function testproscene(){
   }
 
   if ($doc.addEventListener) {
-    $doc.addEventListener($intern_71, function(){
+    $doc.addEventListener($intern_69, function(){
       maybeInjectFrame();
       onBodyDone();
     }
@@ -366,8 +354,8 @@ function testproscene(){
   }
   , 50);
   $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_3, millis:(new Date).getTime(), type:$intern_9});
-  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_54, millis:(new Date).getTime(), type:$intern_4});
-  $doc.write($intern_72);
+  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_52, millis:(new Date).getTime(), type:$intern_4});
+  $doc.write($intern_70);
 }
 
 testproscene();

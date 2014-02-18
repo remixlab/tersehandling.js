@@ -1,0 +1,46 @@
+<!-- /*******************************************************************************
+ * TerseHandling (version 1.0.0)
+ * Copyright (c) 2014 National University of Colombia, https://github.com/remixlab
+ * @author Jean Pierre Charalambos, http://otrolado.info/
+ *     
+ * All rights reserved. Library that eases the creation of interactive
+ * scenes, released under the terms of the GNU Public License v3.0
+ * which is available at http://www.gnu.org/licenses/gpl.html
+ ******************************************************************************/
+ -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='testproscene'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name='com.google.gwt.user.theme.clean.Clean'/>
+  <!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+  <!-- Other module inherits                                      -->
+
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='unal.client.TestProscene'/>
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client'/>
+  
+  <inherits name='remixlab.tersehandling.tersehandling'/>  
+<!--   <inherits name="remixlab.tersehandling.generic.tersehandling_generic" /> -->
+
+
+	<inherits name='org.timepedia.exporter.Exporter'/>
+  	<set-property name="export" value="yes"/>
+  	<inherits name="com.gwtent.reflection.Reflection" />
+  	
+  	
+  	  <inherits name="processing.processing" /> 
+  	
+  	
+
+</module>

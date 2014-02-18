@@ -36,7 +36,9 @@ public class Agent {
 	protected Grabbable trackedGrabber;
 	protected Grabbable defaultGrabber;
 	protected boolean agentTrckn;
-
+	
+	public Agent() {};
+	
 	public Agent(TerseHandler tHandler, String n) {
 		handler = tHandler;
 		nm = n;

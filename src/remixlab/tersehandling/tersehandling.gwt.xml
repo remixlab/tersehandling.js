@@ -18,9 +18,12 @@
 	<inherits name="com.flipthebird.GwtHashCodeEquals"/>
 	<inherits name="com.google.gwt.user.User" />
 	
-	<inherits name="processing.processing" />
+<!-- 	<inherits name="processing.processing" /> -->
 	
 	<inherits name="remixlab.tersehandling.generic.tersehandling_generic" />
+	
+	<inherits name="com.gwtent.reflection.Reflection" />
+	<inherits name="remixlab.util" />
 	
 	<source path="core"/>
 	<source path="event"/>

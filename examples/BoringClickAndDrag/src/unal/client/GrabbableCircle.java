@@ -1,38 +1,65 @@
-/**
- * 
- */
+/*******************************************************************************
+ * TerseHandling (version 1.0.0)
+ * Copyright (c) 2014 National University of Colombia, https://github.com/remixlab
+ * @author Jean Pierre Charalambos, http://otrolado.info/
+ *     
+ * All rights reserved. Library that eases the creation of interactive
+ * scenes, released under the terms of the GNU Public License v3.0
+ * which is available at http://www.gnu.org/licenses/gpl.html
+ ******************************************************************************/
+
 package unal.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
 import processing.core.PApplet;
+import processing.core.PVector;
 import remixlab.tersehandling.core.AbstractGrabber;
 import remixlab.tersehandling.core.Agent;
-import remixlab.tersehandling.core.DLVector;
 import remixlab.tersehandling.event.DOF2Event;
 import remixlab.tersehandling.event.TerseEvent;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author cesar
+ * The Class GrabbableCircle.
  *
+ * @author cesar
  */
 public class GrabbableCircle extends AbstractGrabber {
 	
 	
+	/** The w. */
 	int w = 800;
+	
+	/** The h. */
 	int h = 500;
 	
-	  public float radius;
-	  public DLVector center;
-	  public int colour;
+	  /** The radius. */
+  	public float radius;
+	  
+  	/** The center. */
+  	public PVector center;
+	  
+  	/** The colour. */
+  	public int colour;
 	  
 	  
-	  public GrabbableCircle() {}
+	  /**
+  	 * Instantiates a new grabbable circle.
+  	 */
+  	public GrabbableCircle() {}
 	  
-	  private PApplet p;
+	  /** The p. */
+  	private PApplet p;
 	  
 	  
-	  public GrabbableCircle(Agent agent, JavaScriptObject ctx) {
+	  /**
+  	 * Instantiates a new grabbable circle.
+  	 *
+  	 * @param agent the agent
+  	 * @param ctx the ctx
+  	 */
+  	public GrabbableCircle(Agent agent, JavaScriptObject ctx) {
 		  	
 		  	this.p = new PApplet(ctx);
 		    agent.addInPool(this);
@@ -40,65 +67,108 @@ public class GrabbableCircle extends AbstractGrabber {
 		    setPositionAndRadius();
 	 }
 	  
-	  public GrabbableCircle(Agent agent) {
+	  /**
+  	 * Instantiates a new grabbable circle.
+  	 *
+  	 * @param agent the agent
+  	 */
+  	public GrabbableCircle(Agent agent) {
 		  
 	    agent.addInPool(this);
 	    setColor();
 	    setPositionAndRadius();
 	  }
 
-	  public GrabbableCircle(Agent agent, DLVector c, float r) {
+	  /**
+  	 * Instantiates a new grabbable circle.
+  	 *
+  	 * @param agent the agent
+  	 * @param c the c
+  	 * @param r the r
+  	 */
+  	public GrabbableCircle(Agent agent, PVector c, float r) {
 	    agent.addInPool(this);
 	    radius = r;
 	    center = c;    
 	    setColor();
 	  }
 
-	  public void setColor() {
+	  /**
+  	 * Sets the color.
+  	 */
+  	public void setColor() {
 	    setColor(p.color(p.random(0, 255), p.random(0, 255), p.random(0, 255)));
 	  }
 
-	  public void setColor(int myC) {
+	  /**
+  	 * Sets the color.
+  	 *
+  	 * @param myC the new color
+  	 */
+  	public void setColor(int myC) {
 	    colour = myC;
 	  }
 
-	  public void setPositionAndRadius(DLVector p, float r) {
+	  /**
+  	 * Sets the position and radius.
+  	 *
+  	 * @param p the p
+  	 * @param r the r
+  	 */
+  	public void setPositionAndRadius(PVector p, float r) {
 	    center = p;
 	    radius = r;
 	  }
 
-	  public void setPositionAndRadius() {
+	  /**
+  	 * Sets the position and radius.
+  	 */
+  	public void setPositionAndRadius() {
 	    float maxRadius = 50;
 	    float low = maxRadius;
 	    float highX = w - maxRadius;
 	    float highY = h - maxRadius;
-	    setPositionAndRadius(new DLVector(p.random(low, highX), p.random(low, highY)), p.random(20, maxRadius));
+	    setPositionAndRadius(new PVector(p.random(low, highX), p.random(low, highY)), p.random(20, maxRadius));
 	  }
 
-	  public void draw() {
+	  /**
+  	 * Draw.
+  	 */
+  	public void draw() {
 	    draw(colour);
 	  }
 
-	  public void draw(int c) {
+	  /**
+  	 * Draw.
+  	 *
+  	 * @param c the c
+  	 */
+  	public void draw(int c) {
 		  p.pushStyle();
 		  p.fill(c);
-		  p.ellipse(center.x(), center.y(), 2*radius, 2*radius);
+		  p.ellipse(center.x, center.y, 2*radius, 2*radius);
 		  p.popStyle();
 	  }
 
-	  @Override
+	  /* (non-Javadoc)
+  	 * @see remixlab.tersehandling.core.Grabbable#checkIfGrabsInput(remixlab.tersehandling.event.TerseEvent)
+  	 */
+  	@Override
 	  public boolean checkIfGrabsInput(TerseEvent event) {
 	    if (event instanceof DOF2Event) {
-	      float x = ((DOF2Event)event).getX();
-	      float y = ((DOF2Event)event).getY();
+	      float x = ((DOF2Event)event).x();
+	      float y = ((DOF2Event)event).y();
 	      
 	     
-	      return(PApplet.pow((x - center.x()), 2) + PApplet.pow((y - center.y()), 2) <= PApplet.pow(radius, 2));
+	      return(PApplet.pow((x - center.x), 2) + PApplet.pow((y - center.y), 2) <= PApplet.pow(radius, 2));
 	    }      
 	    return false;
 	  }
 
-	  @Override
+	  /* (non-Javadoc)
+  	 * @see remixlab.tersehandling.core.Grabbable#performInteraction(remixlab.tersehandling.event.TerseEvent)
+  	 */
+  	@Override
 	  public void performInteraction(TerseEvent event) {
 	    setColor();
 	    setPositionAndRadius();

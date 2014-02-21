@@ -35,6 +35,8 @@ git remote add -f tersehandling https://github.com/remixlab/tersehandling_tree.g
 git subtree add --prefix src/remixlab/tersehandling tersehandling master --squash
 git remote add -f util https://github.com/remixlab/util_tree.git
 git subtree add --prefix src/remixlab/util util master --squash
+git remote add -f processing.js https://github.com/remixlab/processing.js_tree.git
+git subtree add --prefix src/processing processing.js master --squash
 ```
 
 ## Read-only access setup
@@ -58,6 +60,7 @@ git clone https://github.com/remixlab/tersehandling.js.git
 cd tersehandling.js
 git remote add -f tersehandling https://github.com/remixlab/tersehandling_tree.git
 git remote add -f util https://github.com/remixlab/util_tree.git
+git remote add -f processing.js https://github.com/remixlab/processing.js_tree.git
 ```
 
 Update from time to time:

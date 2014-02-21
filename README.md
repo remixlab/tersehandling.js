@@ -77,11 +77,19 @@ To contribute back to upstream:
 git push
 ```
 
-To contribute to a particular subtree (i.e., tersehandling, or util)
+To contribute to a particular remixlab subtree (i.e., tersehandling, or util)
 
 ```sh
 git subtree push --prefix=src/remixlab/<remote> <remote> master
 ```
+
+To contribute to the processsing.js subtree
+
+```sh
+#
+git subtree push --prefix=src/processing processing.js master
+```
+
 ##  Compiling and export to Javascript  ##
 
 **GWT**

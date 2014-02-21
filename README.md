@@ -86,7 +86,6 @@ git subtree push --prefix=src/remixlab/<remote> <remote> master
 To contribute to the processsing.js subtree
 
 ```sh
-#
 git subtree push --prefix=src/processing processing.js master
 ```
 

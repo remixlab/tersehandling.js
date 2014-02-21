@@ -2,9 +2,7 @@ package processing.core;
 
 import java.io.Serializable;
 
-import com.flipthebird.gwthashcodeequals.EqualsBuilder;
-import com.flipthebird.gwthashcodeequals.HashCodeBuilder;
-
+import remixlab.util.*;
 
 
 public class PVector implements Serializable {

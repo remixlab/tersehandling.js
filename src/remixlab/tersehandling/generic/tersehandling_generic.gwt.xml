@@ -15,7 +15,7 @@
 	<inherits name='org.timepedia.exporter.Exporter'/>
   	<set-property name="export" value="yes"/>
 	
-	<inherits name="com.flipthebird.GwtHashCodeEquals"/>
+<!-- 	<inherits name="com.flipthebird.GwtHashCodeEquals"/> -->
 	<inherits name="com.google.gwt.user.User" />
 	
 <!-- 	<inherits name="processing.processing" /> -->

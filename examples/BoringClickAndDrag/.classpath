@@ -5,8 +5,7 @@
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/tersehandling"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/ProcessingStub"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/Administrador/Mis documentos/Google Drive/WORKSPACES/jars/gwtexporter-2.5.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/Administrador/Mis documentos/Google Drive/WORKSPACES/jars/gwtent.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrador/Mis documentos/Google Drive/WORKSPACES/git2014/tersehandling.js/lib/gwtexporter-2.5.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrador/Mis documentos/Google Drive/WORKSPACES/git2014/tersehandling.js/lib/gwtent.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
